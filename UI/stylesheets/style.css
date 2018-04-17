@@ -106,14 +106,15 @@ footer .copyright{
 
 .forminput input{
   width: auto !important;
-  height: 40px !important;
+  height: 30px !important;
   /*border-radius: 18px !important;*/
-  font-size: 30px !important;
+  font-size: 20px !important;
 }
 
 .intro-header {
+  padding-top: 60px;
   color: black;
-  background: url(../images/shop.jpg) no-repeat center center;
+  background: url(../images/shop2.jpg) no-repeat center center;
   background-size: cover;
   text-align: center;
 }
@@ -138,4 +139,8 @@ footer .copyright{
   .intro-message > h1 {
     font-size: 3em;
   }
+}
+
+.how-to-order{
+  text-align: center;
 }
