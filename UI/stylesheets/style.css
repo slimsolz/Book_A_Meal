@@ -1,95 +1,93 @@
-/*  GRID OF TWELVE  */
-.col_12 {
-	width: 100%;
+* {
+    box-sizing: border-box;
 }
 
-.col_11 {
-  	width: 91.53%;
-}
-.col_10 {
-  	width: 83.06%;
-}
-
-.col_9 {
-  	width: 74.6%;
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
 }
 
-.col_8 {
-  	width: 66.13%;
+[class*="col-"] {
+    float: left;
+    padding: 15px;
 }
 
-.col_7 {
-  	width: 57.66%;
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    [class*="col-"] {
+        width: 100%;
+    }
 }
 
-.col_6 {
-  	width: 49.2%;
+@media only screen and (min-width: 600px) {
+    /* For tablets: */
+    .col-s-1 {width: 8.33%;}
+    .col-s-2 {width: 16.66%;}
+    .col-s-3 {width: 25%;}
+    .col-s-4 {width: 33.33%;}
+    .col-s-5 {width: 41.66%;}
+    .col-s-6 {width: 50%;}
+    .col-s-7 {width: 58.33%;}
+    .col-s-8 {width: 66.66%;}
+    .col-s-9 {width: 75%;}
+    .col-s-10 {width: 83.33%;}
+    .col-s-11 {width: 91.66%;}
+    .col-s-12 {width: 100%;}
 }
 
-.col_5 {
-  	width: 40.73%;
+@media only screen and (min-width: 768px) {
+    /* For desktop: */
+    .col-1 {width: 8.33%;}
+    .col-2 {width: 16.66%;}
+    .col-3 {width: 25%;}
+    .col-4 {width: 33.33%;}
+    .col-5 {width: 41.66%;}
+    .col-6 {width: 50%;}
+    .col-7 {width: 58.33%;}
+    .col-8 {width: 66.66%;}
+    .col-9 {width: 75%;}
+    .col-10 {width: 83.33%;}
+    .col-11 {width: 91.66%;}
+    .col-12 {width: 100%;}
 }
 
-.col_4 {
-  	width: 32.26%;
+
+.header {
+    background-color: lightblue;
+    color: #ffffff;
+    padding:0;
 }
 
-.col_3 {
-  	width: 23.8%;
+.navheader{
+  float: left;
 }
 
-.col_2 {
-  	width: 15.33%;
+.navmenu{
+  float: right !important;
+  text-align: right;
 }
 
-.col_1 {
-  	width: 6.866%;
+.navmenu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
-/*  GO FULL WIDTH BELOW 480 PIXELS */
-@media only screen and (max-width: 480px) {
-	.col {  margin: 1% 0 1% 0%; }
-    
-  .col_1, .col_2, .col_3, .col_4, .col_5, .col_6, .col_7, .col_8, .col_9, .col_10, .col_11, .col_12 {
-	width: 100%; 
-	}
+.navmenu ul.nav li{
+  display: inline-block;
+
 }
 
-/*  SECTIONS  */
-.section {
-  clear: both;
-  padding: 0px;
-  margin: 0px;
+.navmenu li:hover {
+    background-color: #0099cc;
 }
 
-/*  COLUMN SETUP  */
-.col {
-  display: block;
-  float:left;
-  margin: 1% 0 1% 1.6%;
+.nav li {
+  text-indent: 1cm;
+  text-transform: uppercase;
 }
-.col:first-child { margin-left: 0; }
 
-/*  GROUPING  */
-.group:before,
-.group:after { content:""; display:table; }
-.group:after { clear:both;}
-.group { zoom:1; /* For IE 6/7 */ }
-
-
-/*
-.section
-splits up the page horizontally. You'll need a few of these to break up the content, and you can use them in your main wrapper, or within other divs.
-
-.col
-divides the section into columns. Each column has a left margin except the first one. Using .col:first-child { margin-left: 0; } means you don't need to use class="last" anywhere. It works in all browsers since IE6.
-
-.group
-solves floating problems, by forcing the section to self clear its children (aka the clearfix hack). This is good in Firefox 3.5+, Safari 4+, Chrome, Opera 9+ and IE 6+.
-
-.span_1_of_3
-specifies the width of the column. Using percentages means it's 100% fluid.
-
-@media queries
-as soon as the screen size gets less than 480 pixels the columns stack and the margins disappear.
-*/
+.nav li a{
+  text-decoration: none;
+}
