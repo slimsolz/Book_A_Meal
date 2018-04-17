@@ -91,3 +91,22 @@
 .nav li a{
   text-decoration: none;
 }
+
+footer{
+  background-color: black;
+  color: white;
+}
+footer .copyright{
+  text-align: center;
+}
+
+.forminput{
+  padding-top: 20px;
+}
+
+.forminput input{
+  width: auto !important;
+  height: 40px !important;
+  /*border-radius: 18px !important;*/
+  font-size: 30px !important;
+}
