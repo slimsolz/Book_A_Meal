@@ -172,6 +172,11 @@ footer .copyright{
   border-top-right-radius: 3px;
 }
 
+.meal-panel-image img{
+  width: 180px;
+  height: 180px;
+}
+
 .intro-divider {
   width: 400px;
   border-top: 1px solid #f8f8f8;
