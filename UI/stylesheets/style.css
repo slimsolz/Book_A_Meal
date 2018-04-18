@@ -1,3 +1,7 @@
+.body{
+  background: #f7f8f8;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -223,4 +227,27 @@ footer .copyright{
   color: #fff;
   background-color: #5cb85c;
   border-color: #4cae4c; 
+}
+
+.left-nav{
+  background-color: red;
+}
+
+.menu-heading h2{
+  color: #8D0D19; 
+  margin-top: 1em;
+}
+
+.center {
+  margin: 0 auto;
+  float: none!important;
+  display: block;
+}
+
+.menu-list{
+  display: block;
+  font-size: 22px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #6c6c6c;
 }
