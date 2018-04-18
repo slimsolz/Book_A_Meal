@@ -148,6 +148,7 @@ footer .copyright{
 .meal-intro{
   text-align: center;
 }
+
 .meal-panel {
   margin-bottom: 20px;
   background-color: #fff;
@@ -165,4 +166,27 @@ footer .copyright{
   border-bottom: 1px solid transparent;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
+}
+
+.intro-divider {
+  width: 400px;
+  border-top: 1px solid #f8f8f8;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.signup-link {
+  padding-left: 0;
+  list-style: none;
+}
+.signup-link> li {
+  display: inline-block;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+.signup-link > li:first-child {
+  padding-left: 0;
+}
+
+.signup-link > li > a{
+  text-decoration-line: none;
 }
