@@ -212,3 +212,15 @@ footer .copyright{
   -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
           transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 }
+
+.customer-button{
+  color: #fff;
+  background-color: #5bc0de;
+  border-color: #46b8da;
+}
+
+.caterer-button{
+  color: #fff;
+  background-color: #5cb85c;
+  border-color: #4cae4c; 
+}
