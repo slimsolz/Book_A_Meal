@@ -31,7 +31,16 @@ function myFunction() {
 		ulElement.appendChild(myElement);	
 		myElement.appendChild(listText);*/
 		ulElement.innerHTML += `<li>${today_meal[j]}</li>`;
-	}	
+	}	   
+}
 
-   
+function getTotal() {
+	let totalElement = document.getElementById('total');
+	let qua = document.getElementById('quantity');
+	quantityValue = qua.options[qua.selectedIndex].value;
+	let totalval = 350 * quantityValue;
+	
+	let totalResult = document.getElementById('total');
+
+	totalResult.innerHTML = `<label>Total: &#8358;${totalval}</label>`;
 }

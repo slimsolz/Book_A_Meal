@@ -9,6 +9,7 @@
 		<!-- CSS Files -->
 		<link rel="stylesheet" type="text/css" href="stylesheets/style.css">
 	</head>
+	<body class="body">
 		<div class="header navigation">
 			<div class="row">
 				<div class="navhearder col-2 col-s-12">
@@ -20,7 +21,7 @@
 					<ul class="nav">
 						<li><a href="index.html" >Home</a></li>     
 						<li><a href="about.html">About us</a></li>
-						<li><a href="dishes.html">Dishes</a></li>     
+						<li><a href="see_menu.html">Dishes</a></li>     
 						<li><a href="signin.html">Login</a></li>
 						<li><a href="signup.html">Signup</a></li>
 					</ul>
@@ -29,17 +30,89 @@
 		</div><!-- End header -->
 
 		<!-- intro header -->
-		<section class="intro-header">
-			<div class="row">
-				<div class="col-12">
-					<div class="intro-message">
-						<h1>BOOK-A-MEAL</h1>
-						<h4>Book-A-Meal is a platform that allows customers to make food orders and helps the food vendor know what the customers want to eat.</h4>
+		<div class="row">
+			<section class="section-background col-12">	
+				<!-- <div class="intro-message">
+					<h1>BOOK-A-MEAL</h1>
+					<h4>Book-A-Meal is a platform that allows customers to make food orders and helps the food vendor know what the customers want to eat.</h4>	
+				</div> -->		
+			</section> <!-- /.section-background -->
+		</div>
+		<!-- End intro header -->
+		<div class="row">
+			<div class="col-4">
+				<div class="row meal-panel" style="border-color: #B5B5B5;">
+					<div class="col-7 meal-panel-image">
+						<img src="images/rice.jpg">
+					</div>
+					
+					<div class="col-5 meal-panel-info">
+						<div class="form-divs">
+							<h3>Tomatoes</h3>
+							<h2>&#8358;3400</h2>
+							<a href="modify_meal.html" class="form-input customer-button" style="text-decoration: none; text-align: center;">Modify</a>
+						</div>
+						<div class="form-divs">
+							<a href="#" class="form-input customer-button" style="text-decoration: none; text-align: center; background-color: red;" onclick="confirm('gudbye ');">Remove</a>
+						</div>
 					</div>
 				</div>
 			</div>
-		</section>
-		<!-- End intro header -->
+			<div class="col-4">
+				<div class="row meal-panel" style="border-color: #B5B5B5;">
+					<div class="col-7 meal-panel-image">
+						<img src="images/rice.jpg">
+					</div>
+					
+					<div class="col-5 meal-panel-info">
+						<div class="form-divs">
+							<h3>Tomatoes</h3>
+							<h2>&#8358;3400</h2>
+							<a href="modify_meal.html" class="form-input customer-button" style="text-decoration: none; text-align: center;">Modify</a>
+						</div>
+						<div class="form-divs">
+							<a href="#" class="form-input customer-button" style="text-decoration: none; text-align: center; background-color: red;" onclick="confirm('gudbye ');">Remove</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-4">
+				<div class="row meal-panel" style="border-color: #B5B5B5;">
+					<div class="col-7 meal-panel-image">
+						<img src="images/rice.jpg">
+					</div>
+					
+					<div class="col-5 meal-panel-info">
+						<div class="form-divs">
+							<h3>Tomatoes</h3>
+							<h2>&#8358;3400</h2>
+							<a href="modify_meal.html" class="form-input customer-button" style="text-decoration: none; text-align: center;">Modify</a>
+						</div>
+						<div class="form-divs">
+							<a href="#" class="form-input customer-button" style="text-decoration: none; text-align: center; background-color: red;" onclick="confirm('gudbye ');">Remove</a>
+						</div>
+					</div>
+				</div>
+			</div>			
+			<div class="col-4">
+				<div class="row meal-panel" style="border-color: #B5B5B5;">
+					<div class="col-7 meal-panel-image">
+						<img src="images/rice.jpg">
+					</div>
+					
+					<div class="col-5 meal-panel-info">
+						<div class="form-divs">
+							<h3>Tomatoes</h3>
+							<h2>&#8358;3400</h2>
+							<a href="modify_meal.html" class="form-input customer-button" style="text-decoration: none; text-align: center;">Modify</a>
+						</div>
+						<div class="form-divs">
+							<a href="#" class="form-input customer-button" style="text-decoration: none; text-align: center; background-color: red;" onclick="confirm('gudbye ');">Remove</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
 		<!-- How to order -->
 		<section class="how-to-order">
@@ -77,103 +150,114 @@
 				<h5><i>Explore the most popular meals for the month</i></h5>
 			</div>
 			<div class="row">
-				<div class="col-4">
-					<div class="meal-panel">
-						<div class="meal-panel-image">
-							<img src="images/headerlogo.jpeg">
-						</div>
-						<div class="meal-panel-info">
-							<ul class="meal-list">
-								<li>Meal</li>
-								<li>Price</li>
-								<li>Caterer</li>
-								<li>buy now</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<div class="col-4">
-					<div class="meal-panel">
-						<div class="meal-panel-image">
-							<img src="images/headerlogo.jpeg">
-						</div>
-						<div class="meal-panel-info">
-							<ul class="meal-list">
-								<li>Meal</li>
-								<li>Price</li>
-								<li>Caterer</li>
-								<li>buy now</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<div class="col-4">
-					<div class="meal-panel">
-						<div class="meal-panel-image">
-							<img src="images/headerlogo.jpeg">
-						</div>
-						<div class="meal-panel-info">
-							<ul class="meal-list">
-								<li>Meal</li>
-								<li>Price</li>
-								<li>Caterer</li>
-								<li>buy now</li>
-							</ul>
-						</div>
-					</div>
-				</div>			
-				<div class="col-4">
-					<div class="meal-panel">
-						<div class="meal-panel-image">
-							<img src="images/headerlogo.jpeg">
-						</div>
-						<div class="meal-panel-info">
-							<ul class="meal-list">
-								<li>Meal</li>
-								<li>Price</li>
-								<li>Caterer</li>
-								<li>buy now</li>
-							</ul>
-						</div>
+			<div class="col-4">
+				<div class="row meal-panel" style="border-color: #B5B5B5;">
+					<div class="col-7 meal-panel-image">
+						<img src="images/rice.jpg">
 					</div>
 					
-				</div>
-				<div class="col-4">
-					<div class="meal-panel">
-						<div class="meal-panel-image">
-							<img src="images/headerlogo.jpeg">
+					<div class="col-5 meal-panel-info">
+						<div class="form-divs">
+							<h3>Tomatoes</h3>
+							<h2>&#8358;3400</h2>
+							<a href="modify_meal.html" class="form-input customer-button" style="text-decoration: none; text-align: center;">Modify</a>
 						</div>
-						<div class="meal-panel-info">
-							<ul class="meal-list">
-								<li>Meal</li>
-								<li>Price</li>
-								<li>Caterer</li>
-								<li>buy now</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<div class="col-4">
-					<div class="meal-panel">
-						<div class="meal-panel-image">
-							<img src="images/headerlogo.jpeg">
-						</div>
-						<div class="meal-panel-info">
-							<ul class="meal-list">
-								<li>Meal</li>
-								<li>Price</li>
-								<li>Caterer</li>
-								<li>buy now</li>
-							</ul>
+						<div class="form-divs">
+							<a href="#" class="form-input customer-button" style="text-decoration: none; text-align: center; background-color: red;" onclick="confirm('gudbye ');">Remove</a>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-12">
-					<input type="submit" name="" value="View More">
+			<div class="col-4">
+				<div class="row meal-panel" style="border-color: #B5B5B5;">
+					<div class="col-7 meal-panel-image">
+						<img src="images/rice.jpg">
+					</div>
+					
+					<div class="col-5 meal-panel-info">
+						<div class="form-divs">
+							<h3>Tomatoes</h3>
+							<h2>&#8358;3400</h2>
+							<a href="modify_meal.html" class="form-input customer-button" style="text-decoration: none; text-align: center;">Modify</a>
+						</div>
+						<div class="form-divs">
+							<a href="#" class="form-input customer-button" style="text-decoration: none; text-align: center; background-color: red;" onclick="confirm('gudbye ');">Remove</a>
+						</div>
+					</div>
 				</div>
 			</div>
+			<div class="col-4">
+				<div class="row meal-panel" style="border-color: #B5B5B5;">
+					<div class="col-7 meal-panel-image">
+						<img src="images/rice.jpg">
+					</div>
+					
+					<div class="col-5 meal-panel-info">
+						<div class="form-divs">
+							<h3>Tomatoes</h3>
+							<h2>&#8358;3400</h2>
+							<a href="modify_meal.html" class="form-input customer-button" style="text-decoration: none; text-align: center;">Modify</a>
+						</div>
+						<div class="form-divs">
+							<a href="#" class="form-input customer-button" style="text-decoration: none; text-align: center; background-color: red;" onclick="confirm('gudbye ');">Remove</a>
+						</div>
+					</div>
+				</div>
+			</div>			
+			<div class="col-4">
+				<div class="row meal-panel" style="border-color: #B5B5B5;">
+					<div class="col-7 meal-panel-image">
+						<img src="images/rice.jpg">
+					</div>
+					
+					<div class="col-5 meal-panel-info">
+						<div class="form-divs">
+							<h3>Tomatoes</h3>
+							<h2>&#8358;3400</h2>
+							<a href="modify_meal.html" class="form-input customer-button" style="text-decoration: none; text-align: center;">Modify</a>
+						</div>
+						<div class="form-divs">
+							<a href="#" class="form-input customer-button" style="text-decoration: none; text-align: center; background-color: red;" onclick="confirm('gudbye ');">Remove</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-4">
+				<div class="row meal-panel" style="border-color: #B5B5B5;">
+					<div class="col-7 meal-panel-image">
+						<img src="images/rice.jpg">
+					</div>						
+					<div class="col-5 meal-panel-info">
+						<div class="form-divs">
+							<h3>Tomatoes</h3>
+							<h2>&#8358;3400</h2>
+							<a href="modify_meal.html" class="form-input customer-button" style="text-decoration: none; text-align: center;">Modify</a>
+						</div>
+						<div class="form-divs">
+							<a href="#" class="form-input customer-button" style="text-decoration: none; text-align: center; background-color: red;" onclick="confirm('gudbye ');">Remove</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-4">
+				<div class="row meal-panel" style="border-color: #B5B5B5;">
+					<div class="col-7 meal-panel-image">
+						<img src="images/rice.jpg">
+					</div>
+					
+					<div class="col-5 meal-panel-info">
+						<div class="form-divs">
+							<h3>Tomatoes</h3>
+							<h2>&#8358;3400</h2>
+							<a href="modify_meal.html" class="form-input customer-button" style="text-decoration: none; text-align: center;">Modify</a>
+						</div>
+						<div class="form-divs">
+							<a href="#" class="form-input customer-button" style="text-decoration: none; text-align: center; background-color: red;" onclick="confirm('gudbye ');">Remove</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 		</section>
 		<!-- End list few meals -->
 
@@ -182,20 +266,12 @@
 	        <div class="footer">
 	        	<div class="row">
 	        		<div class="col-4">
-	        			 ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	        			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	        			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	        			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	        			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	        			proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
+	        			<h2>About Us</h2>
+	        			<p>Book a meal story</p>
 	        		</div>
 	        		<div class="col-4">
-	        			 ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	        			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	        			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	        			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	        			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	        			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	        			<h4>Follow Us</h4>
+	        			<h6>Email: email@info.com</h6>
 	        		</div>
 	        		<div class="col-4">
 	        			<form>
@@ -217,8 +293,8 @@
 	        </div>
 	    </footer>
 		<!-- End Footer -->
-	<body>
+
 		<!-- JS Files -->
-		<script type="text/javascript" src="jquery-3.2.1.min"></script>
+		<script type="text/javascript" src="scripts/jquery-3.2.1.min.js"></script>
 	</body>
 </html>
