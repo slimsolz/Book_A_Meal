@@ -7,9 +7,9 @@
 }
 
 .row::after {
-    content: "";
-    clear: both;
-    display: table;
+  content: "";
+  clear: both;
+  display: table;
 }
 
 [class*="col-"] {
@@ -288,11 +288,37 @@ ul.pages{
    }
 }
 
-#full_meal_list{
+#full_meal_list,
+.dashboard_div{
   border: 1px solid black;
 }
 
 /*#today_list{
   border: 1px solid black;
 }*/
-
+thead th {
+  background-color: #BDEAFF;
+  width: 100px;
+}
+tbody th {
+  background-color: #FFFF99;
+}
+tfoot th {
+  background-color: #C2FE9A;
+}
+tfoot th:last-of-type {
+  text-align: right;
+}
+td {
+  text-align: center;
+}
+td:last-of-type {
+  text-align: right;
+}
+.yes{
+  color: green;
+}
+.no{
+  font-weight: bold;
+  color: red;
+}
