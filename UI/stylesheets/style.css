@@ -287,3 +287,12 @@ ul.pages{
     line-height: 0;
    }
 }
+
+#full_meal_list{
+  border: 1px solid black;
+}
+
+/*#today_list{
+  border: 1px solid black;
+}*/
+
