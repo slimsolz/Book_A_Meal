@@ -44,49 +44,58 @@
 					<div id="meal_list" class="row">
 						<div  id="full_meal_list" class="col-7">
 							<h2>List Of Meals</h2>
-							<form>
+							<form action="">
 								<div class="col-3">
-									<input type="checkbox" name="rice" value="rice" class="form-check-input"> Rice & stew
+									<input type="checkbox" name="meal" value="rice" class="form-check-input"> Rice & stew
 								</div>
 								<div class="col-3">
-									<input type="checkbox" name="rice" value="rice" class="form-check-input"> Eba & Efo
+									<input type="checkbox" name="meal" value="Eba & Efo" class="form-check-input"> Eba & Efo
 								</div>
 								<div class="col-3">
-									<input type="checkbox" name="rice" value="rice" class="form-check-input"> Fufu & Egusi
+									<input type="checkbox" name="meal" value="Fufu & Egusi" class="form-check-input"> Fufu & Egusi
 								</div>
 								<div class="col-3">
-									<input type="checkbox" name="rice" value="rice" class="form-check-input"> Pancake
+									<input type="checkbox" name="meal" value="Pancake" class="form-check-input"> Pancake
 								</div>
 								<div class="col-3">
-									<input type="checkbox" name="rice" value="rice" class="form-check-input"> Friedrice
+									<input type="checkbox" name="meal" value="Friedrice" class="form-check-input"> Friedrice
 								</div>
 								<div class="col-3">
-									<input type="checkbox" name="rice" value="rice" class="form-check-input"> Bread & Egg
+									<input type="checkbox" name="meal" value="Bread & Egg" class="form-check-input"> Bread & Egg
 								</div>
 								<div class="col-3">
-									<input type="checkbox" name="rice" value="rice" class="form-check-input"> Rice & stew
+									<input type="checkbox" name="meal" value="rice" class="form-check-input"> Rice & stew
 								</div>
 								<div class="col-3">
-									<input type="checkbox" name="rice" value="rice" class="form-check-input"> Eba & Efo
+									<input type="checkbox" name="meal" value="Eba & Efo" class="form-check-input"> Eba & Efo
 								</div>
 								<div class="col-3">
-									<input type="checkbox" name="rice" value="rice" class="form-check-input"> Fufu & Egusi
+									<input type="checkbox" name="meal" value="Fufu & Egusi" class="form-check-input"> Fufu & Egusi
 								</div>
 								<div class="col-3">
-									<input type="checkbox" name="rice" value="rice" class="form-check-input"> Pancake
+									<input type="checkbox" name="meal" value="Pancake" class="form-check-input"> Pancake
 								</div>
 								<div class="col-3">
-									<input type="checkbox" name="rice" value="rice" class="form-check-input"> Friedrice
+									<input type="checkbox" name="meal" value="Friedrice" class="form-check-input"> Friedrice
 								</div>
 								<div class="col-3">
-									<input type="checkbox" name="rice" value="rice" class="form-check-input"> Bread & Egg
+									<input type="checkbox" name="meal" value="Bread & Egg" class="form-check-input"> Bread & Egg
 								</div>
-								
+								<div>
+									<input type="button" onclick="myFunction()" value="Add To Menu">
+								</div>
+
 							</form>
 						</div>
 						<div class="col-1"></div>
 						<div id="today_list" class="col-4">
-							<h2>Today's Menu</h2>
+							<fieldset>
+								<legend>
+									<h2>Today's Menu</h2>
+								</legend>
+								<ul id="mealList"></ul>
+								<input type="button" id="save_menu_button" disabled name="" value="Save Menu">
+							</fieldset>
 						</div>
 					</div>
 				</div>
@@ -107,6 +116,7 @@
 		<!-- End Footer -->
 
 		<!-- JS Files -->
-		<script type="text/javascript" src="scripts/jquery-3.2.1.min"></script>
+		<script src="../scripts/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="../scripts/today_meal.js"></script>
 	</body>
 </html>
