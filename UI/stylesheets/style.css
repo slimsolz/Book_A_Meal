@@ -68,6 +68,15 @@
   float: left;
 }
 
+.navheader a{
+  text-decoration: none;
+  font-weight: bolder;
+}
+
+.navheader a:hover{
+  color: #8D0D19;
+}
+
 .navmenu{
   float: right !important;
   text-align: right;
@@ -79,18 +88,29 @@
     padding: 0;
 }
 
+.header{
+  color: blue;
+}
+
 .navmenu ul.nav li{
   display: inline-block;
 
 }
 
+.navmenu li a:visited,
+.navheader a:visited
+{
+  color: blue;
+}
+
 .navmenu li:hover {
-    background-color: #0099cc;
+    color: #8D0D19;
 }
 
 .nav li {
   text-indent: 1cm;
   text-transform: uppercase;
+  font-weight: bolder;
 }
 
 .nav li a{
@@ -121,9 +141,9 @@ footer .copyright{
 }
 
 .section-background{
-  background: url('../images/logo2.jpg') no-repeat center;
+  background: url('../images/logo.jpg') no-repeat center;
   height: 350px;
-  background-size: contain;
+  background-size: cover;
   text-align: center;
 }
 
@@ -159,10 +179,12 @@ footer .copyright{
 
 .how-to-order{
   text-align: center;
+  background-color: lightblue;
 }
 
 .meal-intro{
   text-align: center;
+  
 }
 
 .meal-panel {
@@ -305,9 +327,7 @@ ul.pages{
   border: 1px solid black;
 }
 
-/*#today_list{
-  border: 1px solid black;
-}*/
+
 thead th {
   background-color: #BDEAFF;
   width: 100px;
@@ -324,13 +344,33 @@ tfoot th:last-of-type {
 td {
   text-align: center;
 }
-td:last-of-type {
+.main-content td:last-of-type {
   text-align: right;
 }
+
 .yes{
   color: green;
 }
 .no{
   font-weight: bold;
   color: red;
+}
+
+.order-list td:last-of-type{
+  color: red;
+  text-align: center;
+}
+
+.responsiveimage{
+  width: auto;
+  height: auto;
+  max-width: 100%;
+}
+
+.menu-list li a:hover{
+  color: #8D0D19
+}
+
+.menu-list li a:visited{
+  color: #00EEEE;
 }

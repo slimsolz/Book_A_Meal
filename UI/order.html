@@ -9,13 +9,15 @@
 		<!-- CSS Files -->
 		<link rel="stylesheet" type="text/css" href="stylesheets/style.css">
 	</head>
-	<body>
+	<body class="body">
 		<div class="header navigation">
 			<div class="row">
 				<div class="navheader col-2 col-s-12">
-					<a href="index.html">BOOK-A-MEAL</a>
+					<!-- header goes ere -->
+					<a href="index.html" >BOOK-A-MEAL</a>
 				</div>
 				<div class="navmenu col-9 col-s-12">
+					<!-- nav goes ere -->
 					<ul class="nav">
 						<li><a href="index.html" >Home</a></li>     
 						<!--<li><a href="about.html">About us</a></li>-->
@@ -26,69 +28,84 @@
 					</ul>
 				</div>
 			</div>	
-		</div> <!-- End header -->
+		</div><!-- End header -->
 
-		<div class="row">
-			<section class="section-background col-12">			
-			</section> <!-- /.section-background -->
-			
-			<section class="col-12">
-				<div class="col-4" >
-					<fieldset style="background-color: #F0FFFF" class="left-nav">
-						<legend><h3>Today's Menu</h3></legend>
-						<ul>
-							<li><a href="#">Bread & Egg</a></li>
-							<li><a href="#">Akara & pap</a></li>
-							<li><a href="#">Beans & Bread</a></li>
-							<li><a href="#">Rice & Fish stew</a></li>
-							<li><a href="#">Jollof Rice & Chicken</a></li>
-							<li><a href="#">Eba & Efo</a></li>
-							<li><a href="#">Amala & Ewedu</a></li>
-							<li><a href="#">Fufu & Banga</a></li>
-						</ul>
-					</fieldset>
-				</div>
-				
-				<div class="col-6">
-					<div class="col-8 col-s-4">
-						<img src="images/stand.jfif" class="responsiveimage">
+		<section class="main">
+			<div class="row">
+				<div class="col-5 main-content center">
+					<div class="menu-heading">
+						<h2>Your Order</h2>
 					</div>
-					<div class="col-4">
-						<form>
+					<div class="order-list">
+						<div>
+							<table>
+								<thead>
+									<tr>
+										<th>No</th>
+										<th>Meals</th>
+										<th>Quantity</th>
+										<th>Amount</th>
+										<th>Remove</th>
+										
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>1</td>
+										<td>Eba & Efo</td>
+										<td>
+											<input type="text" name="" value="2">
+										</td>											
+										<td>1000</td><td class="remove">&#9747;</td>
+									</tr>
+									<tr>
+										<td>2</td>
+										<td>Fufu & Banga</td>
+										<td>
+											<input type="text" name="" value="2">
+										</td>
+										<td>1000</td>
+										<td class="remove">&#9747;</td>
+										
+									</tr>
+									<tr>
+										<td>3</td>
+										<td>Bread & Egg</td>
+										<td>
+											<input type="text" name="" value="2">
+										</td>
+										<td>1000</td>
+										<td class="remove">&#9747;</td>
+										
+									</tr>
+								</tbody>
+								<tfoot>
+									<tr>
+										<th>Total:</th>
+										<th></th>
+										<th></th>
+										<th>3,000</th>
+										<th></th>										
+									</tr>
+								</tfoot>
+							</table>
 							<div class="form-divs">
-								<label>Fufu And Vegetable Soup</label>
+								<label style="color:red; font-style: italic;" >NOTE: Once an order is placed, it cannot be cancelled.</label>
+								<input type="button" name="" value="PLACE ORDER" class="customer-button form-input">
 							</div>
-							<div class="form-divs">
-								<label>Quantity (Pre plate)</label>
-							</div>
-							<div class="form-divs">
-								<select class="form-input" id="quantity" onchange="getTotal()">
-									<option value="1">1</option>
-									<option value="2">2</option>
-									<option value="3">3</option>
-									<option value="4">4</option>
-								</select>
-							</div>
-							<div class="form-divs" id="total">
-								<label>Total: &#8358;350</label>
-							</div>
-							<div class="form-divs">
-								<input type="button" name="" value="ADD TO CART" class="form-input caterer-button">
-							</div>
-						</form>
+						</div>
 					</div>
 				</div>
-			</section>
-			<!-- main -->
-		</div>
+			</div>			
+		</section>
 
-		<!-- Footer -->
+			<!-- Footer -->
 	    <footer>
 	        <div class="footer">
 	        	<div class="row">
 	        		<div class="col-4">
 	        			<h2>About Us</h2>
-	        			<p>Book a meal story</p>
+	        			<p>Book-A-Meal is a platform that allows customers to make food orders and helps the food vendor know what the customers want to eat.</p>
 	        		</div>
 	        		<div class="col-4">
 	        			<h4>Follow Us</h4>
@@ -117,9 +134,5 @@
 
 		<!-- JS Files -->
 		<script type="text/javascript" src="scripts/jquery-3.2.1.min.js"></script>
-		<script type="text/javascript" src="scripts/myscript.js">
-			
-
-		</script>
 	</body>
 </html>
