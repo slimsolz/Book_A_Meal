@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Book A Meal</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+		<!-- Favicon -->
+		<link rel="shortcut icon" href="images/favicon.ico">
+		<!-- CSS Files -->
+		<link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+	</head>
+	<body class="body">
+		<div class="header navigation">
+			<div class="row">
+				<div class="navheader col-2 col-s-12">
+					<!-- header goes ere -->
+					<a href="index.html" >BOOK-A-MEAL</a>
+				</div>
+				<div class="navmenu col-9 col-s-12">
+					<!-- nav goes ere -->
+					<ul class="nav">
+						<li><a href="index.html" >Home</a></li>     
+						<!--<li><a href="about.html">About us</a></li>-->
+						<li><a href="see_menu.html">Dishes</a></li>     
+						<li><a href="signin.html">Login</a></li>
+						<li><a href="signup.html">Signup</a></li>
+						<li><a href="order.html">My order</a></li>
+					</ul>
+				</div>
+			</div>	
+		</div><!-- End header -->
+
+		<!-- intro header -->
+		<div class="row">
+			<section class="section-background col-12">			
+			</section> <!-- /.section-background -->
+		</div>
+		<!-- End intro header -->
+		<div class="row">
+			<div class="col-4">
+				<div class="row meal-panel" style="border-color: #B5B5B5;">
+					<div class="col-7 meal-panel-image">
+						<img src="images/jollof.jfif">
+					</div>
+					
+					<div class="col-5 meal-panel-info">
+						<form>
+							<div class="form-divs">
+								<label>Jollof</label>
+							</div>
+							<div class="form-divs">
+								<label>Quantity (Pre plate)</label>
+							</div>
+							<div class="form-divs">
+								<select class="form-input" id="quantity" onchange="getTotal()">
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+								</select>
+							</div>
+							<div class="form-divs" id="total">
+								<label>Total: &#8358;350</label>
+							</div>
+							<div class="form-divs">
+								<input type="button" name="" value="ADD TO CART" class="form-input caterer-button">
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="col-4">
+				<div class="row meal-panel" style="border-color: #B5B5B5;">
+					<div class="col-7 meal-panel-image">
+						<img src="images/rice.jfif">
+					</div>
+					
+					<div class="col-5 meal-panel-info">
+						<form>
+							<div class="form-divs">
+								<label>Rice And Fish</label>
+							</div>
+							<div class="form-divs">
+								<label>Quantity (Pre plate)</label>
+							</div>
+							<div class="form-divs">
+								<select class="form-input" id="quantity" onchange="getTotal()">
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+								</select>
+							</div>
+							<div class="form-divs" id="total">
+								<label>Total: &#8358;350</label>
+							</div>
+							<div class="form-divs">
+								<input type="button" name="" value="ADD TO CART" class="form-input caterer-button">
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="col-4">
+				<div class="row meal-panel" style="border-color: #B5B5B5;">
+					<div class="col-7 meal-panel-image">
+						<img src="images/potato.jfif">
+					</div>
+					
+					<div class="col-5 meal-panel-info">
+						<form>
+							<div class="form-divs">
+								<label>Buger And Coffee</label>
+							</div>
+							<div class="form-divs">
+								<label>Quantity (Pre plate)</label>
+							</div>
+							<div class="form-divs">
+								<select class="form-input" id="quantity" onchange="getTotal()">
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+								</select>
+							</div>
+							<div class="form-divs" id="total">
+								<label>Total: &#8358;350</label>
+							</div>
+							<div class="form-divs">
+								<input type="button" name="" value="ADD TO CART" class="form-input caterer-button">
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>			
+			<div class="col-4">
+				<div class="row meal-panel" style="border-color: #B5B5B5;">
+					<div class="col-7 meal-panel-image">
+						<img src="images/dodo.jfif">
+					</div>
+					
+					<div class="col-5 meal-panel-info">
+						<form>
+							<div class="form-divs">
+								<label>Dodo</label>
+							</div>
+							<div class="form-divs">
+								<label>Quantity (Pre plate)</label>
+							</div>
+							<div class="form-divs">
+								<select class="form-input" id="quantity" onchange="getTotal()">
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+								</select>
+							</div>
+							<div class="form-divs" id="total">
+								<label>Total: &#8358;350</label>
+							</div>
+							<div class="form-divs">
+								<input type="button" name="" value="ADD TO CART" class="form-input caterer-button">
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- How to order -->
+		<section class="how-to-order">
+			<div class="order-heading">
+				<h1>How To Order</h1>
+				<h5>in 3 simple steps</h5>
+			</div>
+			<div class="row">
+				<div class="col-4">
+					<h2 style="color: #8D0D19;">STEP ONE</h2>
+					<p>Navigate to the dishes page..</p>
+				</div>
+				<div class="col-4">
+					<h2 style="color: #8D0D19;">STEP TWO</h2>
+					<p>Select a meal from the menu list provided..select the quantity you require</p>
+
+				</div>
+				<div class="col-4">
+					<h2 style="color: #8D0D19;">STEP THREE</h2>
+					<p>Go to My Order page and place the order.</p>
+				</div>
+			</div>
+		</section>
+		<!-- End how to oder -->
+
+		<!-- List few meals -->
+		<section class="list-popular-meals">
+			<div class="meal-intro">
+				<h1>Choose From Most Popular Meals</h1>
+				<h5><i>Explore the most popular meals for the month</i></h5>
+			</div>
+			<div class="row">
+			<div class="col-4">
+				<div class="row meal-panel" style="border-color: #B5B5B5;">
+					<div class="col-7 meal-panel-image">
+						<img src="images/wheat.jfif">
+					</div>
+					
+					<div class="col-5 meal-panel-info">
+						<form>
+							<div class="form-divs">
+								<label>Wheat And Efo</label>
+							</div>
+							<div class="form-divs">
+								<label>Quantity (Pre plate)</label>
+							</div>
+							<div class="form-divs">
+								<select class="form-input" id="quantity" onchange="getTotal()">
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+								</select>
+							</div>
+							<div class="form-divs" id="total">
+								<label>Total: &#8358;350</label>
+							</div>
+							<div class="form-divs">
+								<input type="button" name="" value="ADD TO CART" class="form-input caterer-button">
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="col-4">
+				<div class="row meal-panel" style="border-color: #B5B5B5;">
+					<div class="col-7 meal-panel-image">
+						<img src="images/spag.jfif">
+					</div>
+					
+					<div class="col-5 meal-panel-info">
+						<form>
+							<div class="form-divs">
+								<label>Spagg</label>
+							</div>
+							<div class="form-divs">
+								<label>Quantity (Pre plate)</label>
+							</div>
+							<div class="form-divs">
+								<select class="form-input" id="quantity" onchange="getTotal()">
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+								</select>
+							</div>
+							<div class="form-divs" id="total">
+								<label>Total: &#8358;350</label>
+							</div>
+							<div class="form-divs">
+								<input type="button" name="" value="ADD TO CART" class="form-input caterer-button">
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="col-4">
+				<div class="row meal-panel" style="border-color: #B5B5B5;">
+					<div class="col-7 meal-panel-image">
+						<img src="images/stand.jfif">
+					</div>
+					
+					<div class="col-5 meal-panel-info">
+						<form>
+							<div class="form-divs">
+								<label>Fufu And Vegetable Soup</label>
+							</div>
+							<div class="form-divs">
+								<label>Quantity (Pre plate)</label>
+							</div>
+							<div class="form-divs">
+								<select class="form-input" id="quantity" onchange="getTotal()">
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+								</select>
+							</div>
+							<div class="form-divs" id="total">
+								<label>Total: &#8358;350</label>
+							</div>
+							<div class="form-divs">
+								<input type="button" name="" value="ADD TO CART" class="form-input caterer-button">
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>			
+			<div class="col-4">
+				<div class="row meal-panel" style="border-color: #B5B5B5;">
+					<div class="col-7 meal-panel-image">
+						<img src="images/combo.jfif">
+					</div>
+					
+					<div class="col-5 meal-panel-info">
+						<form>
+							<div class="form-divs">
+								<label>Beans and Vegetable</label>
+							</div>
+							<div class="form-divs">
+								<label>Quantity (Pre plate)</label>
+							</div>
+							<div class="form-divs">
+								<select class="form-input" id="quantity" onchange="getTotal()">
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+								</select>
+							</div>
+							<div class="form-divs" id="total">
+								<label>Total: &#8358;350</label>
+							</div>
+							<div class="form-divs">
+								<input type="button" name="" value="ADD TO CART" class="form-input caterer-button">
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="col-4">
+				<div class="row meal-panel" style="border-color: #B5B5B5;">
+					<div class="col-7 meal-panel-image">
+						<img src="images/jollof.jfif">
+					</div>						
+					<div class="col-5 meal-panel-info">
+					<form>
+							<div class="form-divs">
+								<label>Jollof Rice</label>
+							</div>
+							<div class="form-divs">
+								<label>Quantity (Pre plate)</label>
+							</div>
+							<div class="form-divs">
+								<select class="form-input" id="quantity" onchange="getTotal()">
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+								</select>
+							</div>
+							<div class="form-divs" id="total">
+								<label>Total: &#8358;350</label>
+							</div>
+							<div class="form-divs">
+								<input type="button" name="" value="ADD TO CART" class="form-input caterer-button">
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="col-4">
+				<div class="row meal-panel" style="border-color: #B5B5B5;">
+					<div class="col-7 meal-panel-image">
+						<img src="images/dodo.jfif">
+					</div>
+					
+					<div class="col-5 meal-panel-info">
+						<form>
+							<div class="form-divs">
+								<label>Dodo</label>
+							</div>
+							<div class="form-divs">
+								<label>Quantity (Pre plate)</label>
+							</div>
+							<div class="form-divs">
+								<select class="form-input" id="quantity" onchange="getTotal()">
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+								</select>
+							</div>
+							<div class="form-divs" id="total">
+								<label>Total: &#8358;350</label>
+							</div>
+							<div class="form-divs">
+								<input type="button" name="" value="ADD TO CART" class="form-input caterer-button">
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		</section>
+		<!-- End list few meals -->
+
+		<!-- Footer -->
+	    <footer>
+	        <div class="footer">
+	        	<div class="row">
+	        		<div class="col-4">
+	        			<h2>About Us</h2>
+	        			<p>Book-A-Meal is a platform that allows customers to make food orders and helps the food vendor know what the customers want to eat.</p>
+	        		</div>
+	        		<div class="col-4">
+	        			<h4>Follow Us</h4>
+	        			<h6>Email: email@info.com</h6>
+	        		</div>
+	        		<div class="col-4">
+	        			<form>
+	        				<div class="forminput">
+	        					<input type="email" name="email" required placeholder="enter email address">
+	        				</div>
+	        				<div class="forminput">
+	        					<input type="submit" name="submit" value="Subscribe">
+	        				</div>
+	        			</form>
+	        		</div>	        		
+	        	</div>
+	        	<hr>
+	            <div class="row">
+	                <div class="col-12">                   
+	                    <p class="copyright">Copyright &copy; Book-A-Meal All Rights Reserved</p>
+	                </div>
+	            </div>
+	        </div>
+	    </footer>
+		<!-- End Footer -->
+
+		<!-- JS Files -->
+		<script type="text/javascript" src="scripts/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="scripts/myscript.js"></script>
+	</body>
+</html>

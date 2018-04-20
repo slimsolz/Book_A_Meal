@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Book A Meal</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+		<!-- Favicon -->
+		<link rel="shortcut icon" href="images/favicon.ico">
+		<!-- CSS Files -->
+		<link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+	</head>
+	<body>
+		<div class="header navigation">
+			<div class="row">
+				<div class="navheader col-2 col-s-12">
+					<a href="index.html">BOOK-A-MEAL</a>
+				</div>
+				<div class="navmenu col-9 col-s-12">
+					<ul class="nav">
+						<li><a href="index.html" >Home</a></li>     
+						<!--<li><a href="about.html">About us</a></li>-->
+						<li><a href="see_menu.html">Dishes</a></li>     
+						<li><a href="signin.html">Login</a></li>
+						<li><a href="signup.html">Signup</a></li>
+						<li><a href="order.html">My order</a></li>
+					</ul>
+				</div>
+			</div>	
+		</div> <!-- End header -->
+
+		<div class="row">
+			<section class="section-background col-12">			
+			</section> <!-- /.section-background -->
+			
+			<section class="col-12">
+				<div class="col-4" >
+					<fieldset style="background-color: #F0FFFF" class="left-nav">
+						<legend><h3>Today's Menu</h3></legend>
+						<ul>
+							<li><a href="#">Bread & Egg</a></li>
+							<li><a href="#">Akara & pap</a></li>
+							<li><a href="#">Beans & Bread</a></li>
+							<li><a href="#">Rice & Fish stew</a></li>
+							<li><a href="#">Jollof Rice & Chicken</a></li>
+							<li><a href="#">Eba & Efo</a></li>
+							<li><a href="#">Amala & Ewedu</a></li>
+							<li><a href="#">Fufu & Banga</a></li>
+						</ul>
+					</fieldset>
+				</div>
+				
+				<div class="col-6">
+					<div class="col-8 col-s-4">
+						<img src="images/stand.jfif" class="responsiveimage">
+					</div>
+					<div class="col-4">
+						<form>
+							<div class="form-divs">
+								<label>Fufu And Vegetable Soup</label>
+							</div>
+							<div class="form-divs">
+								<label>Quantity (Pre plate)</label>
+							</div>
+							<div class="form-divs">
+								<select class="form-input" id="quantity" onchange="getTotal()">
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+								</select>
+							</div>
+							<div class="form-divs" id="total">
+								<label>Total: &#8358;350</label>
+							</div>
+							<div class="form-divs">
+								<input type="button" name="" value="ADD TO CART" class="form-input caterer-button">
+							</div>
+						</form>
+					</div>
+				</div>
+			</section>
+			<!-- main -->
+		</div>
+
+		<!-- Footer -->
+	    <footer>
+	        <div class="footer">
+	        	<div class="row">
+	        		<div class="col-4">
+	        			<h2>About Us</h2>
+	        			<p>Book a meal story</p>
+	        		</div>
+	        		<div class="col-4">
+	        			<h4>Follow Us</h4>
+	        			<h6>Email: email@info.com</h6>
+	        		</div>
+	        		<div class="col-4">
+	        			<form>
+	        				<div class="forminput">
+	        					<input type="email" name="email" required placeholder="enter email address">
+	        				</div>
+	        				<div class="forminput">
+	        					<input type="submit" name="submit" value="Subscribe">
+	        				</div>
+	        			</form>
+	        		</div>	        		
+	        	</div>
+	        	<hr>
+	            <div class="row">
+	                <div class="col-12">                   
+	                    <p class="copyright">Copyright &copy; Book-A-Meal All Rights Reserved</p>
+	                </div>
+	            </div>
+	        </div>
+	    </footer>
+		<!-- End Footer -->
+
+		<!-- JS Files -->
+		<script type="text/javascript" src="scripts/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="scripts/myscript.js">
+			
+
+		</script>
+	</body>
+</html>
