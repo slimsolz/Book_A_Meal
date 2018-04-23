@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "babel-node": "nodemon --exec babel-node server/app.js",
-    "test": "app.js"
+    "test": "mocha server/tests/test.js"
   },
   "repository": {
     "type": "git",
@@ -19,7 +19,10 @@
   "homepage": "https://github.com/slimsolz/Book_A_Meal#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
+    "chai": "^4.1.2",
+    "chai-http": "^4.0.0",
     "express": "^4.16.3",
+    "mocha": "^5.1.1",
     "morgan": "^1.9.0"
   },
   "devDependencies": {
