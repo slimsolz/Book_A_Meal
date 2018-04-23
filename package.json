@@ -4,6 +4,7 @@
   "description": "\u001b[2~\u001b[2~Book_A_Meal is an application that allows customers to make food orders and helps the food vendor know what the customers want to eat.",
   "main": "index.js",
   "scripts": {
+    "babel-node": "nodemon --exec babel-node server/app.js",
     "test": "app.js"
   },
   "repository": {
@@ -23,7 +24,6 @@
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.11.0",
