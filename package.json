@@ -1,0 +1,30 @@
+{
+  "name": "book_a_meal",
+  "version": "1.0.0",
+  "description": "\u001b[2~\u001b[2~Book_A_Meal is an application that allows customers to make food orders and helps the food vendor know what the customers want to eat.",
+  "main": "index.js",
+  "scripts": {
+    "test": "app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/slimsolz/Book_A_Meal.git"
+  },
+  "author": "Odumah Solomon",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/slimsolz/Book_A_Meal/issues"
+  },
+  "homepage": "https://github.com/slimsolz/Book_A_Meal#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "morgan": "^1.9.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.6.1"
+  }
+}
