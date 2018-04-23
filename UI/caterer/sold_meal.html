@@ -21,7 +21,7 @@
 		</div>
 		<!-- End header -->
 
-		<section class="main">
+				<section class="main">
 			<div class="row">
 				<div class="col-2 col-s-3 left-nav">
 					<ul class="subjects">
@@ -39,39 +39,41 @@
 
 				<div class="col-10 col-s-9 main-content">
 					<div class="col-8">
-						<h1>Add a new meal</h1>
+						<h1>Log Sold Meal</h1>
 						<form class="add-meal">
 							<div class="form-divs">
-			            		<label for="name">Name</label>
-			            		<input type="text" class="form-input" id="name" name="name" placeholder="Enter Meal Name" required>
-			            	</div>
-			            	<div class="form-divs">
-			            		<label for="price">Price</label>
-			            		<input type="text" class="form-input" id="price" name="price" placeholder="Enter Meal Price " required>
-			            	</div>
-			            	<div class="form-divs">
-			            		<label>Select a meal type</label>
-			            		<select class="form-input" required>
-			            			<option disabled selected>Meal Type</option>
-			            			<option value="">Breakfast</option>
-			            			<option value="">Lunch</option>
-			            			<option value="">Dinner</option>
+			            		<label for="meals">Meal</label>
+			            		<select name="meals" class="form-input">
+			            			<option>Rice</option>
+			            			<option>Fufu</option>
+			            			<option>Amala</option>
 			            		</select>
 			            	</div>
 			            	<div class="form-divs">
-			            	    <label for="inputfile">Meal Image</label>
-			            	    <input type="file" id="inputfile" name="imgfile" class="form-input" required>
-			            	    <input type="hidden" name="MAX_FILE_SIZE" value="1024">
+			            		<label for="price">Price</label>
+			            		<input type="text" class="form-input" id="price" name="price" value="350" disabled required>
 			            	</div>
 			            	<div class="form-divs">
-		            		<input type="submit" class="form-input customer-button" name="add" value="Add Meal">
+			            		<label for="quantity">Quantity Sold</label>
+			            		<input type="text" name="quantity" required placeholder="1">
+			            	</div>
+			            	<div class="form-divs">
+			            	    <label for="total">Total</label>
+			            	    <label>&#8358;350</label>
+			            	    
+			            	</div>
+			            	<div class="form-divs">
+		            		<input type="submit" class="form-input customer-button" name="add" value="SAVE">
 		            	</div>	
 						</form>
 					</div>
 				</div>
 			</div>			
+
 		</section>
 		<!-- End Main Section -->
+
+
 
 		<!-- Footer -->
 	    <footer>
