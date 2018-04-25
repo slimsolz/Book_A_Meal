@@ -1,12 +1,12 @@
-import  express  from 'express';
-import  logger  from 'morgan';
-import  bodyParser  from 'body-parser';
-import  index  from './routes/index';
+import express from 'express';
+import logger from 'morgan';
+import bodyParser from 'body-parser';
+import index from './routes/index';
 
 const app = express();
 
 // port
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 8000;
 app.set('port', port);
 
 // log request to console
