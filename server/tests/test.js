@@ -14,6 +14,7 @@ const Caterer = {
 
 // POST signup
 describe('POST caterer/signup', () => {
+
   it('should create new caterer', (done) => {
     chai.request(app)
       .post('/api/v1/caterer/signup')
@@ -23,5 +24,56 @@ describe('POST caterer/signup', () => {
         expect(res.body).to.be.a('object');
         done();
       });
+  });
+
+  //POST sign up - should return 400 if no email
+  it('should return 400 if no email', (done) =>{
+  	chai.request(app)
+  		.post('/api/v1/caterer/signup')
+  		.send({
+  			id: 1,
+  			email: '',
+  			username: 'solz',
+  			password: 'slim'
+  		})
+  		.end((err, res) =>{
+  			expect(res).to.have.status(400);
+  			expect(res.body).to.be.a('object');
+  			done();
+  		});
+  });
+
+  //POST sign up - should return 400 if no username
+  it('should return 400 if no username', (done) =>{
+  	chai.request(app)
+  		.post('/api/v1/caterer/signup')
+  		.send({
+  			id: 1,
+  			email: 'test@gmail.com',
+  			username: '',
+  			password: 'slim'
+  		})
+  		.end((err, res) =>{
+  			expect(res).to.have.status(400);
+  			expect(res.body).to.be.a('object');
+  			done();
+  		});
+  });
+
+  //POST sign up - should return 400 if no password
+  it('should return 400 if no password', (done) =>{
+  	chai.request(app)
+  		.post('/api/v1/caterer/signup')
+  		.send({
+  			id: 1,
+  			email: 'test@gmail.com',
+  			username: 'solz',
+  			password: ''
+  		})
+  		.end((err, res) =>{
+  			expect(res).to.have.status(400);
+  			expect(res.body).to.be.a('object');
+  			done();
+  		});
   });
 });
