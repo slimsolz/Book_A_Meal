@@ -77,3 +77,82 @@ describe('POST caterer/signup', () => {
   		});
   });
 });
+
+describe("'Bad Request' POST caterer/signin", () =>{
+	//POST sign in - should return 400 if no username
+  it('should return 400 if no username', (done) =>{
+  	chai.request(app)
+  		.post('/api/v1/caterer/signin')
+  		.send({
+  			username: '',
+  			password: 'slim'
+  		})
+  		.end((err, res) =>{
+  			expect(res).to.have.status(400);
+  			expect(res.body).to.be.a('object');
+  			done();
+  		});
+  });
+
+  //POST sign in - should return 400 if no password
+  it('should return 400 if no password', (done) =>{
+  	chai.request(app)
+  		.post('/api/v1/caterer/signin')
+  		.send({
+  			username: 'solz',
+  			password: ''
+  		})
+  		.end((err, res) =>{
+  			expect(res).to.have.status(400);
+  			expect(res.body).to.be.a('object');
+  			done();
+  		});
+  });
+
+  //POST sign in - should return 400 if undefined
+  it('should return 400 if no undefined', (done) =>{
+  	chai.request(app)
+  		.post('/api/v1/caterer/signin')
+  		.send({
+  			username: undefined,
+  			password: undefined
+  		})
+  		.end((err, res) =>{
+  			expect(res).to.have.status(400);
+  			expect(res.body).to.be.a('object');
+  			done();
+  		});
+  });
+
+  //POST sign in - should return 400 if username and password is wrong
+  it('should return 400 if username and password is wrong', (done) =>{
+  	chai.request(app)
+  		.post('/api/v1/caterer/signin')
+  		.send({
+  			username: 'jey@gmail',
+  			password: 'bingo'
+  		})
+  		.end((err, res) =>{
+  			expect(res).to.have.status(400);
+  			expect(res.body).to.be.a('object');
+  			done();
+  		});
+  });
+});
+
+describe('POSt caterer/signin', () =>{
+	//POST sign in - should return 200 for successful login
+  it('should return 200 for successful login', (done) =>{
+  	chai.request(app)
+  		.post('/api/v1/caterer/signin')
+  		.send({
+  			username: Caterer.username,
+  			password: Caterer.password
+  		})
+  		.end((err, res) =>{
+  			expect(res).to.have.status(200);
+  			expect(res.body).to.be.a('object');
+  			done();
+  		});
+  });
+});

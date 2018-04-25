@@ -14,5 +14,6 @@ router.get('/', (req, res, next) =>{
 });
 
 router.post('/caterer/signup', CatererController.signUp);
+router.post('/caterer/signin', CatererController.signIn);
 
 export default router;
