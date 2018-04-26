@@ -54,10 +54,10 @@ export default class customerController{
 			}
 		});
 
-		return res.status(400).json({
+	/*	return res.status(400).json({
 				status: 'error',
 			 	message: 'Unable to log in',
-			});
+			});*/
 				
 	}
 }

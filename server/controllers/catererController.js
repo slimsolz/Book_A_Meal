@@ -55,9 +55,9 @@ export default class CatererController {
       }
     });
 
-    return res.status(400).json({
+/*    return res.status(400).json({
     	status: 'error',
 		 	message: 'Wrong username/password',
-		 });
+		 });*/
   }
 }
