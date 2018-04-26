@@ -19,7 +19,7 @@ router.post('/caterer/signup', CatererController.signUp);
 router.post('/caterer/signin', CatererController.signIn);
 
 //meals
-router.get('meals', MealController.getAllMeals);
+router.get('/meals/:catererId', MealController.getAllMeals);
 router.get('/meals/:catererId/:id', MealController.getMealById);
 router.post('/meals', MealController.addMeal);
 router.delete('/meals/:catererId/:id', MealController.deleteMeal);
