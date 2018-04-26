@@ -3,6 +3,7 @@ import db from '../models/dummy-db';
 import CatererController from '../controllers/catererController';
 import CustomerController from '../controllers/customerController';
 import MealController from '../controllers/mealController';
+import MenuController from '../controllers/menuController';
 
 
 const router = express.Router();
@@ -18,15 +19,21 @@ router.get('/', (req, res, next) => {
 router.post('/caterer/signup', CatererController.signUp);
 router.post('/caterer/signin', CatererController.signIn);
 
-//meals
+//Users
+router.post('/customer/signup', CustomerController.signUp);
+router.post('/customer/signin', CustomerController.signIn);
+
+//Meals
 router.get('/meals/:catererId', MealController.getAllMeals);
 router.get('/meals/:catererId/:id', MealController.getMealById);
 router.post('/meals', MealController.addMeal);
 router.delete('/meals/:catererId/:id', MealController.deleteMeal);
 router.put('/meals/:catererId/:id', MealController.updateMeal);
 
-//Users
-router.post('/customer/signup', CustomerController.signUp);
-router.post('/customer/signin', CustomerController.signIn);
+//Menu
+router.post('/menu/:catererId', MenuController.setMenu);
+router.get('/menu', MenuController.getMenu);
+
+
 
 export default router;

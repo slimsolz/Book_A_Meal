@@ -15,7 +15,8 @@ db.caterers = [
 	},
 ];
 
-db.customers = [{
+db.customers = [
+	{
 	  id: 1,
 	  email: 'user1@gmail.com',
 	  username: 'user1',
@@ -55,5 +56,24 @@ db.meals = [
 		catererId: 1,
 	}
 ];
+
+db.menu = [
+	{
+		id: 1,
+		catererId: 1,
+		title: 'Rice and Chicken',
+	},
+	{
+		id: 2,
+		catererId: 2,
+		title: 'Eba And Efo',
+	},
+	{
+		id: 3,
+		catererId: 1,
+		title: 'Yam And Fried Egg',
+	}
+
+]
 
 export default db;
