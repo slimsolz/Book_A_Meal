@@ -12,6 +12,19 @@ const Caterer = {
   password: 'passworD'
 };
 
+//homepage
+describe('GET /', () =>{
+  it('should return the homepage', (done) =>{
+    chai.request(app)
+    .get('/api/v1/')
+    .end((err, res) =>{
+      expect(res).to.have.status(200);
+      expect(res.body.status).to.be.equal('success');
+      done();
+    })
+  });
+});
+
 
 // POST signup
 describe('POST caterer/signup', () => {
@@ -157,5 +170,15 @@ describe('POSt caterer/signin', () => {
   });
 });
 
-
-
+//  Get 404
+describe('GET page not found', () => {
+  it('should return 404', (done) => {
+    chai.request(app)
+      .get('/api/v1/kjdfkjwkbw')
+      .end((err, res) => {
+        expect(res).to.have.status(404);
+        expect(res.body.message).to.equal('Not found');
+        done();
+      });
+  });
+});
