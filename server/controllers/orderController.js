@@ -66,10 +66,10 @@ export default class OrderController{
 
 		const modified_order = {
 			id: orderFound.id,
-			meal_title: meal_title || orderFound.meal_title,
-			quantity: quantity || orderFound.quantity,
+			meal_title: meal_title ,
+			quantity: quantity ,
 			amount: (350 * quantity),
-			delivery_address: delivery_address || orderFound.delivery_address,
+			delivery_address: delivery_address,
 			time_placed: new Date(),
 			customerId: orderFound.customerId,
 			catererId: orderFound.catererId
