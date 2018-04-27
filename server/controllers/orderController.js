@@ -18,6 +18,7 @@ export default class OrderController{
 			quantity,
 			amount: (350 * quantity),
 			delivery_address,
+			time_placed: new Date(),
 			customerId,
 			catererId
 		};
@@ -69,6 +70,7 @@ export default class OrderController{
 			quantity: quantity || orderFound.quantity,
 			amount: (350 * quantity),
 			delivery_address: delivery_address || orderFound.delivery_address,
+			time_placed: new Date(),
 			customerId: orderFound.customerId,
 			catererId: orderFound.catererId
 		};
@@ -82,8 +84,15 @@ export default class OrderController{
 	}
 
 	//get all order
-/*	static getAllOrders(req, res){
+	static getAllOrders(req, res){
+		const catererId = parseInt(req.params.catererId, 10);
 
-	}*/
+		let filteredOrders = db.orders.filter((order) => order.catererId === catererId);
+		return res.status(200).json({
+			status: 'success',
+			message: 'All Orders',
+			orders: filteredOrders
+		});
+	}
 
 }
