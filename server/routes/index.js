@@ -39,6 +39,7 @@ router.get('/menu', MenuController.getMenu);
 /*order*/
 router.post('/orders', OrderController.placeOrder);
 router.put('/orders/:orderId', OrderController.modifyOrder);
+router.get('/orders/:catererId', OrderController.getAllOrders);
 
 
 // 404

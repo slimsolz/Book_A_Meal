@@ -87,6 +87,7 @@ db.orders = [
 		quantity: 2,
 		amount: 700,
 		delivery_address: 'house 33 ikeji',
+		time_placed: new Date(2018, 4, 24, 8, 0 ),
 		customerId: 1,
 		catererId: 1
 	},
@@ -96,6 +97,7 @@ db.orders = [
 		quantity: 3,
 		amount: 1050,
 		delivery_address: 'c close festac',
+		time_placed: new Date(2018, 4, 25, 14, 0 ),
 		customerId: 2,
 		catererId: 2
 	},
@@ -105,6 +107,7 @@ db.orders = [
 		quantity: 3,
 		amount: 1050,
 		delivery_address: 'house 33 ikeji',
+		time_placed: new Date(2018, 4, 27, 19, 0 ),
 		customerId: 1,
 		catererId: 1
 	},
