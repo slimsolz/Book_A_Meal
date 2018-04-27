@@ -6,7 +6,7 @@ import index from './routes/index';
 const app = express();
 
 // port
-const port = process.env.PORT || 6020;
+const port = process.env.PORT || 6060;
 app.set('port', port);
 
 // log request to console

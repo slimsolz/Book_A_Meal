@@ -1,5 +1,6 @@
 const db = [];
 
+/*Caterer DB*/
 db.caterers = [
 	{
 	  id: 1,
@@ -15,6 +16,7 @@ db.caterers = [
 	},
 ];
 
+/*Customer DB*/
 db.customers = [
 	{
 	  id: 1,
@@ -30,6 +32,7 @@ db.customers = [
 	},	
 ];
 
+/*Meals DB*/
 db.meals = [
 	{
 		id: 1,
@@ -57,6 +60,7 @@ db.meals = [
 	}
 ];
 
+/*Menu DB*/
 db.menu = [
 	{
 		id: 1,
@@ -73,7 +77,37 @@ db.menu = [
 		catererId: 1,
 		title: 'Yam And Fried Egg',
 	}
+];
 
+/*Order DB*/
+db.order = [
+	{
+		id: 1,
+		meal_title: 'Rice And Chicken',
+		quantity: 2,
+		amount: 700,
+		delivery_address: 'house 33 ikeji',
+		customerId: 1,
+		catererId: 1
+	},
+	{
+		id: 2,
+		meal_title: 'Eba And Efo',
+		quantity: 3,
+		amount: 1050,
+		delivery_address: 'c close festac',
+		customerId: 2,
+		catererId: 2
+	},
+	{
+		id: 2,
+		meal_title: 'Yam And Fried Egg',
+		quantity: 3,
+		amount: 1050,
+		delivery_address: 'house 33 ikeji',
+		customerId: 1,
+		catererId: 1
+	},
 ]
 
 export default db;

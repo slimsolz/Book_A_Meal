@@ -4,6 +4,7 @@ import CatererController from '../controllers/catererController';
 import CustomerController from '../controllers/customerController';
 import MealController from '../controllers/mealController';
 import MenuController from '../controllers/menuController';
+import OrderController from '../controllers/orderController';
 
 
 const router = express.Router();
@@ -34,6 +35,9 @@ router.put('/meals/:catererId/:id', MealController.updateMeal);
 //Menu
 router.post('/menu/:catererId', MenuController.setMenu);
 router.get('/menu', MenuController.getMenu);
+
+/*order*/
+router.post('/orders', OrderController.placeOrder);
 
 // 404
 router.get('*', (req, res) => {
