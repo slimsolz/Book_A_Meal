@@ -80,7 +80,7 @@ db.menu = [
 ];
 
 /*Order DB*/
-db.order = [
+db.orders = [
 	{
 		id: 1,
 		meal_title: 'Rice And Chicken',
@@ -100,7 +100,7 @@ db.order = [
 		catererId: 2
 	},
 	{
-		id: 2,
+		id: 3,
 		meal_title: 'Yam And Fried Egg',
 		quantity: 3,
 		amount: 1050,

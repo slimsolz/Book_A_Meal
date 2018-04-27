@@ -38,6 +38,8 @@ router.get('/menu', MenuController.getMenu);
 
 /*order*/
 router.post('/orders', OrderController.placeOrder);
+router.put('/orders/:orderId', OrderController.modifyOrder);
+
 
 // 404
 router.get('*', (req, res) => {
