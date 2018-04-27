@@ -10,6 +10,7 @@ const router = express.Router();
 
 router.get('/', (req, res, next) => {
   res.json({
+  	status: 'success',
     message: 'Welcome to Book-A-Meal App',
     caterers: db.caterers
   });
@@ -34,6 +35,12 @@ router.put('/meals/:catererId/:id', MealController.updateMeal);
 router.post('/menu/:catererId', MenuController.setMenu);
 router.get('/menu', MenuController.getMenu);
 
-
+// 404
+router.get('*', (req, res) => {
+  res.status(404).json({
+    status: 'error',
+    message: 'Not found'
+  });
+});
 
 export default router;
