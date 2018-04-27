@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/slimsolz/Book_A_Meal.svg?branch=ch-setup-server-156990961)](https://travis-ci.org/slimsolz/Book_A_Meal)
-[![Coverage Status](https://coveralls.io/repos/github/slimsolz/Book_A_Meal/badge.svg?branch=ft-setup-menu-156935669)](https://coveralls.io/github/slimsolz/Book_A_Meal?branch=ft-setup-menu-156935669)
-
+[![Coverage Status](https://coveralls.io/repos/github/slimsolz/Book_A_Meal/badge.svg?branch=dummy-server)](https://coveralls.io/github/slimsolz/Book_A_Meal?branch=dummy-server)
+[![Maintainability](https://api.codeclimate.com/v1/badges/6a3d792fc87b292fc30c/maintainability)](https://codeclimate.com/github/slimsolz/Book_A_Meal/maintainability)
 
 # Book_A_Meal
 Book_A_Meal is an application that allows customers to make food orders and helps the food vendor know what the customers want to eat.

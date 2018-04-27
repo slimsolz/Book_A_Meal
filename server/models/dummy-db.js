@@ -113,4 +113,47 @@ db.orders = [
 	},
 ]
 
+db.summary = [
+	{
+		id: 1,
+		meal: 'Eba And Efo',
+		available: true,
+		sold: true,
+		quantity: 3,
+		amount: 1050,
+		time_ordered: new Date(2018, 4, 24, 8, 0 ),
+		catererId: 1
+	},
+	{
+		id: 2,
+		meal: 'Jollof With Chicken',
+		available: true,
+		sold: true,
+		quantity: 6,
+		amount: 1800,
+		time_ordered: new Date(2018, 4, 24, 12, 0 ),
+		catererId: 1
+	},
+	{
+		id: 3,
+		meal: 'Amala And Ewedu',
+		available: false,
+		sold: false,
+		quantity: 0,
+		amount: 0,
+		time_ordered: new Date(2018, 4, 24, 17, 0 ),
+		catererId: 1
+	},
+	{
+		id: 4,
+		meal: 'Amala And Ewedu',
+		available: true,
+		sold: true,
+		quantity: 5,
+		amount: 1500,
+		time_ordered: new Date(2018, 4, 24, 17, 0 ),
+		catererId: 2
+	}
+]
+
 export default db;
