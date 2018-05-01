@@ -106,7 +106,25 @@ describe('POST /meals', () =>{
       });
   });
 
-
+  it('should return 400 if price is not an integer', (done) =>{
+    chai.request(app)
+    .post('/api/v1/meals')
+    .send(
+    {
+      id: 5,
+      title: 'test meal',
+      price: "350",
+      imageurl: 'images/testMeal.jpg',
+      available: false,
+      catererId: 1
+    })
+    .end((err, res) =>{
+      expect(res).to.have.status(400);
+      expect(res).to.be.a('object');
+      expect(res.body.quantity).to.not.be.a('string');
+      done();
+    });
+  });
 });
 
 
@@ -196,6 +214,26 @@ describe('PUT /meals/:catererId/:id', () =>{
     .end((err, res) =>{
       expect(res).to.have.status(400);
       expect(res).to.be.a('object');
+      done();
+    });
+  });
+
+  it('should return 400 if updated price is not an integer', (done) =>{
+    chai.request(app)
+    .put('/api/v1/meals/1/1')
+    .send(
+    {
+      id: 1,
+      title: 'test meal',
+      price: '350',
+      imageurl: 'images/testMeal.jpg',
+      available: false,
+      catererId: 1
+    })
+    .end((err, res) =>{
+      expect(res).to.have.status(400);
+      expect(res).to.be.a('object');
+      expect(res.body.price).to.not.be.a('string');
       done();
     });
   });

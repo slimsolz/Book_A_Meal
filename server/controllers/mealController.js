@@ -124,8 +124,8 @@ export default class MealController{
 
 		const updatedMeal = {
 			id: mealFound.id,
-			title: title || mealFound.title,
-			price: price || mealFound.price,
+			title: title,
+			price: price,
 			imageurl,
 			available: available || false,
 			catererId: mealFound.catererId
