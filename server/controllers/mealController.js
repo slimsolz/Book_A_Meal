@@ -21,7 +21,7 @@ export default class MealController{
 		}
 
 		const newMeal = {
-			id: db.meals.length + 1,
+			id: db.meals[db.meals.length - 1].id + 1,
 			title,
 			price,
 			imageurl,
@@ -172,4 +172,17 @@ export default class MealController{
 		});
 	}
 
+	static getMeals(req, res){
+		const allMeals = [];
+
+		db.meals.map((meal) =>{
+			allMeals.push(meal);
+		});
+
+		return res.status(200).json({
+			status: 'success',
+			message: 'All meals',
+			allMeals
+		})
+	}
 }

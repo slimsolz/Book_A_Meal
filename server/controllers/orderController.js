@@ -22,7 +22,7 @@ export default class OrderController{
 		}
 
 		const new_order = {
-			id: db.orders.length + 1,
+			id: db.orders[db.orders.length - 1].id + 1,
 			meal_title,
 			quantity,
 			amount: (350 * quantity),

@@ -26,6 +26,7 @@ router.post('/customer/signup', CustomerController.signUp);
 router.post('/customer/signin', CustomerController.signIn);
 
 //Meals
+router.get('/meals', MealController.getMeals);
 router.get('/meals/:catererId', MealController.getAllMeals);
 router.get('/meals/:catererId/:id', MealController.getMealById);
 router.post('/meals', MealController.addMeal);

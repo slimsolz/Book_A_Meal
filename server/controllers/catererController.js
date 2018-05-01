@@ -12,7 +12,7 @@ export default class CatererController {
 		 }
 
 		 const newCaterer = {
-		 	id: db.caterers.length + 1,
+		 	id: db.caterers[db.caterers.length - 1].id + 1,
 		 	email,
 		 	username,
 		 	password

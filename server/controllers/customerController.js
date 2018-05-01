@@ -13,7 +13,7 @@ export default class customerController{
 		 }
 
 		 const newCustomer = {
-		 	id: db.customers.length + 1,
+		 	id: db.customers[db.customers.length - 1].id + 1,
 		 	email,
 		 	username,
 		 	password
