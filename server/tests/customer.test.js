@@ -28,6 +28,22 @@ describe('POST customer/signup', () => {
       });
   });
 
+  it('should return 400 if caterer email already exists', (done) => {
+    chai.request(app)
+      .post('/api/v1/customer/signup')
+      .send({
+        id: 1,
+        email: 'user4@gmail.com',
+        username: 'solz',
+        password: 'slim'
+      })
+      .end((err, res) => {
+        expect(res).to.have.status(400);
+        expect(res.body.email).to.not.be.equal('user4@gmail.com');
+        done();
+      });
+  });
+
   // POST sign up - should return 400 if no email
   it('should return 400 if no email', (done) => {
   	chai.request(app)
@@ -127,7 +143,7 @@ describe("'Bad Request' POST customer/signin", () => {
   });
 
   // POST sign in - should return 400 if username and password is wrong
-/*  it('should return 400 if username and password is wrong', (done) => {
+  it('should return 400 if username and password is wrong', (done) => {
   	chai.request(app)
   		.post('/api/v1/customer/signin')
   		.send({
@@ -139,7 +155,7 @@ describe("'Bad Request' POST customer/signin", () => {
   			expect(res.body).to.be.a('object');
   			done();
   		});
-  });*/
+  });
 });
 
 describe('POST customer/signin', () => {

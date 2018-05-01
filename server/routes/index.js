@@ -13,8 +13,7 @@ const router = express.Router();
 router.get('/', (req, res, next) => {
   res.json({
   	status: 'success',
-    message: 'Welcome to Book-A-Meal App',
-    caterers: db.caterers
+    message: 'Welcome to Book-A-Meal App'
   });
 });
 

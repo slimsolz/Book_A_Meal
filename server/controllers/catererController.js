@@ -11,7 +11,7 @@ export default class CatererController {
 		 	});
 		 }
 
-		 const caterer = {
+		 const newCaterer = {
 		 	id: db.caterers.length + 1,
 		 	email,
 		 	username,
@@ -19,16 +19,16 @@ export default class CatererController {
 		 };
 
 		 //check if email already exist
-		 db.caterers.forEach((caterer) => {
-		 	if (caterer.email === email) {
-		 		return res.status(400).json({
-		 			status: 'error',
-		 			message: 'A Caterer with that email already exists'
-		 		});
-		 	}
-		 });
-
-		 db.caterers.push(caterer);
+		 const caterer = db.caterers.find((caterer) => caterer.email === email);
+		 if (caterer) {
+			return res.status(400).json({
+	 			status: 'error',
+	 			message: 'A Caterer with that email already exists'
+	 		});
+		 }
+		 		
+		 	
+		 db.caterers.push(newCaterer);
 		 return res.status(201).json({
 		 	status: 'success',
 		 	message: 'Caterer created successfully',
@@ -46,18 +46,18 @@ export default class CatererController {
 		 	});
     }
 
-    db.caterers.forEach((caterer) => {
-      if (username === caterer.username && password === caterer.password) {
-        return res.status(200).json({
-        	status: 'success',
-		 			message: 'Login successful',
-		 		});
-      }
-    });
+    const caterer = db.caterers.find((caterer) => username === caterer.username && password === caterer.password);
 
-/*    return res.status(400).json({
+    if (caterer) {
+			return res.status(200).json({
+      	status: 'success',
+	 			message: 'Login successful',
+	 		});
+    }
+
+    return res.status(400).json({
     	status: 'error',
 		 	message: 'Wrong username/password',
-		 });*/
+		 });
   }
 }

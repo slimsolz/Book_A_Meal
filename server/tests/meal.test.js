@@ -87,7 +87,28 @@ describe('POST /meals', () =>{
       done();
     });
   });
+
+  it('should return 400 if meal already exists', (done) => {
+    chai.request(app)
+      .post('/api/v1/meals')
+      .send({
+        id: 2,
+        title: 'test meal',
+        price: 350,
+        imageurl: 'images/test.jpg',
+        available: false,
+        catererId: 1
+      })
+      .end((err, res) => {
+        expect(res).to.have.status(400);
+        expect(res.body.title).to.not.be.equal('test meal');
+        done();
+      });
+  });
+
+
 });
+
 
 describe('DELETE /meals/:catererId/:id', () =>{
   it('should successful remove a meal', (done) =>{
@@ -218,7 +239,7 @@ describe('GET /meals', () =>{
       });
     });
 
-    /*it('should return 200', (done) =>{
+    it('should return 200', (done) =>{
       chai.request(app)
       .get(`/api/v1/meals/1/1`)
       .send(Meal)
@@ -227,6 +248,6 @@ describe('GET /meals', () =>{
         expect(res).to.be.a('object');
         done();
       });
-    });*/
+    });
   });
 });

@@ -12,7 +12,7 @@ export default class MealController{
 			});
 		}
 
-		const meal = {
+		const newMeal = {
 			id: db.meals.length + 1,
 			title,
 			price,
@@ -22,16 +22,16 @@ export default class MealController{
 		};
 
 		//check if meal exists
-		db.meals.forEach((meal) =>{
-			if (meal.catererId === catererId && meal.title === title) {
-				return res.status(400).json({
-					status: 'error',
-					message: 'Meal already exists'
-				});
-			}
-		});
+		const meal = db.meals.find((meal) => meal.catererId === catererId && meal.title === title);
+		if (meal) {
+			return res.status(400).json({
+				status: 'error',
+				message: 'Meal already exists'
+			});
+		}
+				
 
-		db.meals.push(meal);
+		db.meals.push(newMeal);
 		return res.status(201).json({
 			status: 'success',
 			message: 'Successfully added meal',
@@ -141,15 +141,15 @@ export default class MealController{
 		const id = parseInt(req.params.id, 10);
 		const catererId = parseInt(req.params.catererId, 10);
 
-		db.meals.map((meal) =>{
-			if (meal.catererId === catererId && meal.id === id) {
-				return res.status(200).json({
-					status: 'success',
-					message: 'Meal Retrieved Successfully',
-					meal
-				});
-			}
-		});
+		const meal = db.meals.find((meal) =>meal.catererId === catererId && meal.id === id);
+		if (meal) {
+			return res.status(200).json({
+				status: 'success',
+				message: 'Meal Retrieved Successfully',
+				meal
+			});
+		}
+		
 		return res.status(404).json({
 			status: 'error',
 			message: 'Meal Not Found'

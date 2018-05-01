@@ -12,23 +12,23 @@ export default class customerController{
 		 	});
 		 }
 
-		 const customer = {
+		 const newCustomer = {
 		 	id: db.customers.length + 1,
 		 	email,
 		 	username,
 		 	password
 		 }
 
-		 db.customers.forEach((customer) =>{
-		 	if (customer.email === email) {
-		 		return res.status(400).json({
+		 const customer = db.customers.find((customer) => customer.email === email);
+		 if (customer) {
+		 	return res.status(400).json({
 		 			status: 'error',
 		 			message: 'A customer with that email already exists'
 		 		});
-		 	}
-		 });
+		 }
+		 		
 
-		 db.customers.push(customer);
+		 db.customers.push(newCustomer);
 		 return res.status(201).json({
 		 	status: 'success',
 		 	message: 'customer created successfully',
@@ -45,19 +45,18 @@ export default class customerController{
 		 	});
 		}
 		
-		db.customers.forEach((customer) =>{
-			if (username === customer.username && password === customer.password) {
-				return res.status(200).json({
-					status: 'success',
-		 			message: 'Login successful',
-		 		});
-			}
-		});
+		const customer = db.customers.find((customer) => username === customer.username && password === customer.password);
+		if (customer) {
+			return res.status(200).json({
+				status: 'success',
+	 			message: 'Login successful',
+	 		});
+		}
 
-	/*	return res.status(400).json({
+		return res.status(400).json({
 				status: 'error',
 			 	message: 'Unable to log in',
-			});*/
+			});
 				
 	}
 }
