@@ -92,6 +92,29 @@ describe('POST /orders', () =>{
       done();
     });
   });
+
+  it('should return 400 if quantity is not an integer', (done) =>{
+    chai.request(app)
+    .post('/api/v1/orders')
+    .send(
+    {
+      id: 1,
+      meal_title: 'Rice And Chicken',
+      quantity: "test",
+      amount: 700,
+      delivery_address: 'house 33 ikeji',
+      time_placed: new Date(2018, 4, 24, 8, 0 ),
+      customerId: 1,
+      catererId: 1
+    })
+    .end((err, res) =>{
+      expect(res).to.have.status(400);
+      expect(res).to.be.a('object');
+      expect(res.body.quantity).to.not.be.a('string');
+      done();
+    });
+  });
+
 });
 
 describe('GET /orders', () =>{
