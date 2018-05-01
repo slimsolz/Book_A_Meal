@@ -12,8 +12,16 @@ export default class MealController{
 			});
 		}
 
-		const meal = {
-			id: db.meals.length + 1,
+		//validate the price field
+		if (!Number.isInteger(price) || !Number.isInteger(catererId)) {
+			return res.status(400).json({
+				status: 'error',
+				message: 'Price/catererId Must be a number'
+			});
+		}
+
+		const newMeal = {
+			id: db.meals[db.meals.length - 1].id + 1,
 			title,
 			price,
 			imageurl,
@@ -22,20 +30,20 @@ export default class MealController{
 		};
 
 		//check if meal exists
-		db.meals.forEach((meal) =>{
-			if (meal.catererId === catererId && meal.title === title) {
-				return res.status(400).json({
-					status: 'error',
-					message: 'Meal already exists'
-				});
-			}
-		});
+		const meal = db.meals.find((meal) => meal.catererId === catererId && meal.title === title);
+		if (meal) {
+			return res.status(400).json({
+				status: 'error',
+				message: 'Meal already exists'
+			});
+		}
+				
 
-		db.meals.push(meal);
+		db.meals.push(newMeal);
 		return res.status(201).json({
 			status: 'success',
 			message: 'Successfully added meal',
-			meals: db.meals
+			meals: newMeal
 		});
 	}
 
@@ -97,7 +105,7 @@ export default class MealController{
 			});
 		}
 
-		const { title, price, imageurl, available, catererId } = req.body;
+		const { title, price, imageurl, available } = req.body;
 
 		if (!title || !price || !imageurl) {
 			return res.status(400).json({
@@ -106,10 +114,18 @@ export default class MealController{
 			});
 		}
 
+		//validate the price field
+		if (!Number.isInteger(price)) {
+			return res.status(400).json({
+				status: 'error',
+				message: 'Price Must be a number'
+			});
+		}
+
 		const updatedMeal = {
 			id: mealFound.id,
-			title: title || mealFound.title,
-			price: price || mealFound.price,
+			title: title,
+			price: price,
 			imageurl,
 			available: available || false,
 			catererId: mealFound.catererId
@@ -141,19 +157,32 @@ export default class MealController{
 		const id = parseInt(req.params.id, 10);
 		const catererId = parseInt(req.params.catererId, 10);
 
-		db.meals.map((meal) =>{
-			if (meal.catererId === catererId && meal.id === id) {
-				return res.status(200).json({
-					status: 'success',
-					message: 'Meal Retrieved Successfully',
-					meal
-				});
-			}
-		});
+		const meal = db.meals.find((meal) =>meal.catererId === catererId && meal.id === id);
+		if (meal) {
+			return res.status(200).json({
+				status: 'success',
+				message: 'Meal Retrieved Successfully',
+				meal
+			});
+		}
+		
 		return res.status(404).json({
 			status: 'error',
 			message: 'Meal Not Found'
 		});
 	}
 
+	static getMeals(req, res){
+		const allMeals = [];
+
+		db.meals.map((meal) =>{
+			allMeals.push(meal);
+		});
+
+		return res.status(200).json({
+			status: 'success',
+			message: 'All meals',
+			allMeals
+		})
+	}
 }

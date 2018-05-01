@@ -13,8 +13,7 @@ const router = express.Router();
 router.get('/', (req, res, next) => {
   res.json({
   	status: 'success',
-    message: 'Welcome to Book-A-Meal App',
-    caterers: db.caterers
+    message: 'Welcome to Book-A-Meal App'
   });
 });
 
@@ -27,6 +26,7 @@ router.post('/customer/signup', CustomerController.signUp);
 router.post('/customer/signin', CustomerController.signIn);
 
 //Meals
+router.get('/meals', MealController.getMeals);
 router.get('/meals/:catererId', MealController.getAllMeals);
 router.get('/meals/:catererId/:id', MealController.getMealById);
 router.post('/meals', MealController.addMeal);

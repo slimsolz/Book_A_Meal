@@ -33,7 +33,7 @@ export default class MenuController {
 	static getMenu(req, res){		
 		const title = [];
 
-		db.menu.forEach((meal) =>{
+		db.menu.map((meal) =>{
 			title.push(meal.title);
 		});
 

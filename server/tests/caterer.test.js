@@ -89,6 +89,22 @@ describe('POST caterer/signup', () => {
   			done();
   		});
   });
+
+  it('should return 400 if caterer email already exists', (done) => {
+    chai.request(app)
+      .post('/api/v1/caterer/signup')
+      .send({
+        id: 1,
+        email: 'user-test@gmail.com',
+        username: 'solz',
+        password: 'slim'
+      })
+      .end((err, res) => {
+        expect(res).to.have.status(400);
+        expect(res.body.email).to.not.be.equal('user-test@gmail.com');
+        done();
+      });
+  });
 });
 
 describe("'Bad Request' POST caterer/signin", () => {
@@ -138,7 +154,7 @@ describe("'Bad Request' POST caterer/signin", () => {
   });
 
   // POST sign in - should return 400 if username and password is wrong
-/*  it('should return 400 if username and password is wrong', (done) => {
+  it('should return 400 if username and password is wrong', (done) => {
   	chai.request(app)
   		.post('/api/v1/caterer/signin')
   		.send({
@@ -150,7 +166,7 @@ describe("'Bad Request' POST caterer/signin", () => {
   			expect(res.body).to.be.a('object');
   			done();
   		});
-  });*/
+  });
 });
 
 describe('POSt caterer/signin', () => {
