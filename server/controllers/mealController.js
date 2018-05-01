@@ -13,10 +13,10 @@ export default class MealController{
 		}
 
 		//validate the price field
-		if (!Number.isInteger(price)) {
+		if (!Number.isInteger(price) || !Number.isInteger(catererId)) {
 			return res.status(400).json({
 				status: 'error',
-				message: 'Price Must be a number'
+				message: 'Price/catererId Must be a number'
 			});
 		}
 
@@ -105,7 +105,7 @@ export default class MealController{
 			});
 		}
 
-		const { title, price, imageurl, available, catererId } = req.body;
+		const { title, price, imageurl, available } = req.body;
 
 		if (!title || !price || !imageurl) {
 			return res.status(400).json({

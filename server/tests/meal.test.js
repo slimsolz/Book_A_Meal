@@ -252,12 +252,11 @@ describe('GET /meals', () =>{
       });
     });
 
-    it('should return 404 if not found', (done) =>{
+    it('should return 200 ', (done) =>{
       chai.request(app)
-      .get(`/api/v1/meals/`)
-      .send({Meal})
+      .get(`/api/v1/meals`)
       .end((err, res) =>{
-        expect(res).to.have.status(404);
+        expect(res).to.have.status(200);
         expect(res).to.be.a('object');
         done();
       });
