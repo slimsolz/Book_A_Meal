@@ -12,6 +12,14 @@ export default class MealController{
 			});
 		}
 
+		//validate the price field
+		if (!Number.isInteger(price)) {
+			return res.status(400).json({
+				status: 'error',
+				message: 'Price Must be a number'
+			});
+		}
+
 		const newMeal = {
 			id: db.meals.length + 1,
 			title,
@@ -103,6 +111,14 @@ export default class MealController{
 			return res.status(400).json({
 				status: 'error',
 				message: 'Value title, price and image are required'
+			});
+		}
+
+		//validate the price field
+		if (!Number.isInteger(price)) {
+			return res.status(400).json({
+				status: 'error',
+				message: 'Price Must be a number'
 			});
 		}
 

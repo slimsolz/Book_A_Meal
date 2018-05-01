@@ -5,10 +5,19 @@ export default class OrderController{
 	static placeOrder(req, res){
 		const { meal_title, quantity, delivery_address, customerId, catererId } = req.body;
 
+		//validate fields must not be empty
 		if (!meal_title || !quantity || !delivery_address || !customerId || !catererId) {
 			return res.status(400).json({
 				status: 'error',
 				message: 'All fields are required'
+			});
+		}
+
+		//validate the quantity field
+		if (!Number.isInteger(quantity)) {
+			return res.status(400).json({
+				status: 'error',
+				message: 'Quantity Must be a number'
 			});
 		}
 
@@ -24,7 +33,6 @@ export default class OrderController{
 		};
 
 		//check if order has bin made already
-
 		db.orders.push(new_order);
 		return res.status(201).json({
 			status: 'success',
