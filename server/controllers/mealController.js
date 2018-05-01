@@ -43,7 +43,7 @@ export default class MealController{
 		return res.status(201).json({
 			status: 'success',
 			message: 'Successfully added meal',
-			meals: db.meals
+			meals: newMeal
 		});
 	}
 

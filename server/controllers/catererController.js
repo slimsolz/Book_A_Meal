@@ -32,7 +32,7 @@ export default class CatererController {
 		 return res.status(201).json({
 		 	status: 'success',
 		 	message: 'Caterer created successfully',
-		 	caterers: db.caterers
+		 	caterer: newCaterer
 		 });
   }
 

@@ -32,7 +32,7 @@ export default class customerController{
 		 return res.status(201).json({
 		 	status: 'success',
 		 	message: 'customer created successfully',
-		 	customers: db.customers
+		 	customer: newCustomer
 		 });
 	}
 
