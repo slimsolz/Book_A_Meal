@@ -31,16 +31,14 @@ export default class MenuController {
 	
 	//GET Menu
 	static getMenu(req, res){		
-		const title = [];
-
-		db.menu.map((meal) =>{
-			title.push(meal.title);
-		});
+		const title = db.menu.map((meal) =>
+			meal.title
+		);
 
 		return res.status(200).json({
 			status: 'success',
 			message: 'All Meals',
-			menu: title
+			meal: title
 		});
 	}
 
