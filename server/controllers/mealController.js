@@ -5,21 +5,6 @@ export default class MealController{
 	static addMeal(req, res){
 		const { title, price, imageurl, available, catererId } = req.body;
 
-		if (!title || !price || !imageurl) {
-			return res.status(400).json({
-				status: 'error',
-				message: 'Value title, price and image are required'
-			});
-		}
-
-		//validate the price field
-		if (!Number.isInteger(price) || !Number.isInteger(catererId)) {
-			return res.status(400).json({
-				status: 'error',
-				message: 'Price/catererId Must be a number'
-			});
-		}
-
 		const newMeal = {
 			id: db.meals[db.meals.length - 1].id + 1,
 			title,
@@ -106,13 +91,6 @@ export default class MealController{
 		}
 
 		const { title, price, imageurl, available } = req.body;
-
-		if (!title || !price || !imageurl) {
-			return res.status(400).json({
-				status: 'error',
-				message: 'Value title, price and image are required'
-			});
-		}
 
 		//validate the price field
 		if (!Number.isInteger(price)) {

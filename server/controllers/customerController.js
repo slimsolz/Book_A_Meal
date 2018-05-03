@@ -5,13 +5,6 @@ export default class customerController{
 	static signUp(req, res){
 		 const { email, username, password } = req.body;
 
-		 if (!email || !username || !password) {
-		 	return res.status(400).json({
-		 		status: 'error',
-		 		message: 'Input Email, username and Password',
-		 	});
-		 }
-
 		 const newCustomer = {
 		 	id: db.customers[db.customers.length - 1].id + 1,
 		 	email,
@@ -38,13 +31,7 @@ export default class customerController{
 
 	static signIn(req, res){
 		const { username, password } = req.body;
-		if (!username || !password) {
-			return res.status(400).json({
-				status: 'error',
-		 		message: 'Input valid username and Password',
-		 	});
-		}
-		
+	
 		const customer = db.customers.find((customer) => username === customer.username && password === customer.password);
 		if (customer) {
 			return res.status(200).json({

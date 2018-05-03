@@ -6,20 +6,20 @@ export default class OrderController{
 		const { meal_title, quantity, delivery_address, customerId, catererId } = req.body;
 
 		//validate fields must not be empty
-		if (!meal_title || !quantity || !delivery_address || !customerId || !catererId) {
+	/*	if (!meal_title || !quantity || !delivery_address || !customerId || !catererId) {
 			return res.status(400).json({
 				status: 'error',
 				message: 'All fields are required'
 			});
-		}
+		}*/
 
 		//validate the quantity field
-		if (!Number.isInteger(quantity)) {
+/*		if (!Number.isInteger(quantity)) {
 			return res.status(400).json({
 				status: 'error',
 				message: 'Quantity Must be a number'
 			});
-		}
+		}*/
 
 		const new_order = {
 			id: db.orders[db.orders.length - 1].id + 1,
@@ -65,12 +65,12 @@ export default class OrderController{
 
 		const { meal_title, quantity, delivery_address } = req.body;
 
-		if (!meal_title || !quantity || !delivery_address) {
+	/*	if (!meal_title || !quantity || !delivery_address) {
 			return res.status(400).json({
 				status: 'error',
 				message: 'All fields are required'
 			});
-		}
+		}*/
 
 		const modified_order = {
 			id: orderFound.id,
