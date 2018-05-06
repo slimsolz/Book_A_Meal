@@ -10,7 +10,7 @@
     "test": "nyc --reporter=html --reporter=text mocha server/tests/ --exit --compilers js:babel-core/register",
     "test-watch": "nodemon --exec \"npm test\"",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
-    "seq": "sequelize model:create --name Customer --attributes username:string,password:string,email:string,phoneNo:string"
+    "seq": "sequelize db:migrate"
   },
   "nyc": {
     "exclude": [

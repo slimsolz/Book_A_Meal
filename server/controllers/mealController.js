@@ -151,12 +151,10 @@ export default class MealController{
 	}
 
 	static getMeals(req, res){
-		const allMeals = db.meals.map((meal) => meal);
-
 		return res.status(200).json({
 			status: 'success',
 			message: 'All meals',
-			allMeals
+			allMeals: db.meals
 		})
 	}
 }
