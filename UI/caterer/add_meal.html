@@ -2,91 +2,80 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Book A Meal - Caterer</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-		<!-- Favicon -->
-		<link rel="shortcut icon" href="../images/favicon.ico">
-		<!-- CSS Files -->
-		<link rel="stylesheet" type="text/css" href="../stylesheets/style.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Book-A-Meal | Caterer</title>
+		<link rel="stylesheet" type="text/css" href="../styles/index.css">
 	</head>
-	<body class="body">
-		<!-- Header -->
-		<div class="header navigation">
-			<div class="row">
-				<div class="navheader col-2 col-s-12">
-					<!-- header goes ere -->
-					<a href="index.html">BOOK-A-MEAL<!-- <img src="images/headerlogo.jpeg" height="60px"> --></a>
-				</div>
-			</div>	
-		</div>
-		<!-- End header -->
+	<body>
+		<main>
+			<header class="row">
+				<div class="col-12">
+					<h2><a href="">Book<span class="logoA">-A-</span>Meal</a></h2>
+				</div>				
+			</header>	
 
-		<section class="main">
-			<div class="row">
-				<div class="col-2 col-s-3 left-nav">
+			<section class="row">
+
+				<!-- SIDE NAV -->
+				<div class="col-3 col-s-3">
 					<ul class="subjects">
-						<li><a href="dashboard.html" >Dashboard</a></li>
-						<li><a href="manage_meal.html">Manage Meals</a>
-							<ul class="pages">
-								<li><a href="add_meal.html">Add</a></li>
-								
-							</ul>
-						</li>
-
-						<li><a href="set_menu.html">Set Menu For Today</a></li>
-						<li><a href="../signin.html">Logout</a></li>
+						<li><a href="index.html" >Dashboard</a></li>
+						<li><a href="manage_meal.html" class="active">Manage Meals</a></li>
+						<li><a href="set_menu.html" >Set Menu</a></li>
+						<li><a href="../home.html">Logout</a></li>
 					</ul>
 				</div>
-
-				<div class="col-10 col-s-9 main-content">
-					<div class="col-8">
-						<h1>Add a new meal</h1>
-						<form class="add-meal">
-							<div class="form-divs">
-			            		<label for="name">Name</label>
-			            		<input type="text" class="form-input" id="name" name="name" placeholder="Enter Meal Name" required>
-			            	</div>
-			            	<div class="form-divs">
-			            		<label for="price">Price</label>
-			            		<input type="text" class="form-input" id="price" name="price" placeholder="Enter Meal Price " required>
-			            	</div>
-			            	<div class="form-divs">
-			            		<label>Select a meal type</label>
-			            		<select class="form-input" required>
-			            			<option disabled selected>Meal Type</option>
-			            			<option value="">Breakfast</option>
-			            			<option value="">Lunch</option>
-			            			<option value="">Dinner</option>
-			            		</select>
-			            	</div>
-			            	<div class="form-divs">
-			            	    <label for="inputfile">Meal Image</label>
-			            	    <input type="file" id="inputfile" name="imgfile" class="form-input" required>
-			            	    <input type="hidden" name="MAX_FILE_SIZE" value="1024">
-			            	</div>
-			            	<div class="form-divs">
-		            		<input type="submit" class="form-input customer-button" name="add" value="Add Meal">
-		            	</div>	
-						</form>
+				<!-- END SIDE NAV -->
+				<!-- MAIN CONTENT -->
+				<div class="col-7 col-s-7 borderedcol panel addmeal">
+					<h2>ADD MEAL</h2>
+					<div class="row">		
+						<div class="col-3">
+							<label for="name">Name</label>
+						</div>
+						<div class="col-6">
+							<input type="text" id="name" name="name" placeholder="Enter Meal Name" required>
+						</div>
 					</div>
+					<div class="row">
+						<div class="col-3">
+							<label for="price">Price</label>
+						</div>
+						<div class="col-6">
+							<input type="text" id="price" name="price" placeholder="Enter Meal Price " required>
+						</div>
+					</div>
+					<!-- <div class="row">
+						<div class="col-3">
+							<label>Select a meal type</label>
+						</div>
+						<div class="col-6">
+							<select required>
+			          			<option disabled selected>Meal Type</option>
+			          			<option value="">Breakfast</option>
+			          			<option value="">Lunch</option>
+			          			<option value="">Dinner</option>
+			          		</select>
+						</div>
+					</div> -->
+					<div class="row">
+						<div class="col-3">
+							<label for="inputfile">Meal Image</label>
+						</div>
+						<div class="col-6">
+							<input type="file" id="inputfile" name="imgfile" required>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-9">
+							<input type="submit" name="add" value="Add Meal">
+						</div>
+        	</div>
 				</div>
-			</div>			
-		</section>
-		<!-- End Main Section -->
-
-		<!-- Footer -->
-	    <footer>
-	        <div class="footer">
-	            <div class="row">
-	                <div class="col-12">                   
-	                    <p class="copyright">2018 &copy; Book-A-Meal</p>
-	                </div>
-	            </div>
-	        </div>
-	    </footer>
-		<!-- End Footer -->
-
-		<!-- JS Files -->
-		<script type="text/javascript" src="../scripts/jquery-3.2.1.min.js"></script>
+			</section>
+		</main>
+		<footer>
+			&copy; 2018 | Book-A-Meal
+		</footer>
 	</body>
 </html>

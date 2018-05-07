@@ -2,179 +2,90 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Book A Meal - Caterer</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-		<!-- Favicon -->
-		<link rel="shortcut icon" href="../images/favicon.ico">
-		<!-- CSS Files -->
-		<link rel="stylesheet" type="text/css" href="../stylesheets/style.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Book-A-Meal | Caterer</title>
+		<link rel="stylesheet" type="text/css" href="../styles/index.css">
 	</head>
-	<body class="body">
-		<div class="header navigation">
-			<div class="row">
-				<div class="navheader col-2 col-s-12">
-					<!-- header goes ere -->
-					<a href="index.html">BOOK-A-MEAL<!-- <img src="images/headerlogo.jpeg" height="60px"> --></a>
-				</div>
-			</div>	
-		</div><!-- End header -->
+	<body>
+		<main>
+			<header class="row">
+				<div class="col-12">
+					<h2><a href="index.html">Book<span class="logoA">-A-</span>Meal</a></h2>
+				</div>				
+			</header>	
 
-		<section class="main">
-			<div class="row">
-				<div class="col-2 col-s-3 left-nav">
+			<section class="row">
+
+				<!-- SIDE NAV -->
+				<div class="col-3 col-s-3">
 					<ul class="subjects">
-						<li><a href="dashboard.html" >Dashboard</a></li>
-						<li><a href="manage_meal.html">Manage Meals</a>
-							<ul class="pages">
-								<li><a href="add_meal.html">Add</a></li>
-								
-							</ul>
-						</li>
-
-						<li><a href="set_menu.html">Set Menu For Today</a></li>
-						<li><a href="../signin.html">Logout</a></li>
+						<li><a href="index.html" >Dashboard</a></li>
+						<li><a href="manage_meal.html" class="active" >Manage Meals</a></li>
+						<li><a href="set_menu.html">Set Menu</a></li>
+						<li><a href="../home.html">Logout</a></li>
 					</ul>
 				</div>
-
-				<div class="col-10 col-s-9 main-content">
-					<div class="row search_content">
-						<div class="col-3">
-							<div class="form-divs">
-								<a href="add_meal.html" class="form-input caterer-button" style="text-decoration: none; text-align: center;">Add New Meal</a>
-							</div>
+				<!-- END SIDE NAV -->
+				<!-- MAIN CONTENT -->
+				<div class="col-9 col-s-9">
+					<div class="row" >	
+						<h2>MEALS</h2>
+						<div class="col-10 borderedcol panel mealform">
+							<section class="row searchmeal">
+								<div class="col-4">
+									<div class="form-divs">
+										<a href="add_meal.html" class="form-input addmeal">New Meal</a>
+									</div>
+								</div>
+								<div class="col-6">
+									<form>
+										<div class="search">
+											<input type="text" name="search" required class="form-input" placeholder="search for a meal" >
+										</div>
+									</form>
+								</div>
+							</section>
 						</div>
-						<div class="col-6 center">
-							<form>
-								<div class="form-divs">
-									<input type="text" name="search" required class="form-input" placeholder="search for a meal" >
-								</div>
-							</form>
-						</div>
-					</div>
-					<div class="row">
-							<div class="col-4  ">
-								<div class="row meal-panel"  style="border-color: #B5B5B5;">
-									<div class="col-7 meal-panel-image">
-										<img src="../images/stand.jfif" class="responsiveimage">
-									</div>
-									<div class="col-5 meal-panel-info">
-										<div class="form-divs">
-											<h3>Vegetable</h3>
-											<h2>&#8358;350</h2>
-											<a href="modify_meal.html" class="form-input customer-button" style="text-decoration: none; text-align: center;">Modify</a>
-										</div>
-										<div class="form-divs">
-											<a href="#" class="form-input customer-button" style="text-decoration: none; text-align: center; background-color: red;" onclick="confirm('Are You sure');">Remove</a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-4 ">
-								<div class="row meal-panel" style="border-color: #B5B5B5;">
-									<div class="col-7 meal-panel-image">
-										<img src="../images/dodo.jfif" class="responsiveimage" >
-									</div>
-									
-									<div class="col-5 meal-panel-info">
-										<div class="form-divs">
-											<h3>Dodo</h3>
-											<h2>&#8358;350</h2>
-											<a href="modify_meal.html" class="form-input customer-button" style="text-decoration: none; text-align: center;">Modify</a>
-										</div>
-										<div class="form-divs">
-											<a href="#" class="form-input customer-button" style="text-decoration: none; text-align: center; background-color: red;" onclick="confirm('Removed ');">Remove</a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-4 ">
-								<div class="row meal-panel" style="border-color: #B5B5B5;">
-									<div class="col-7 meal-panel-image" >
-										<img src="../images/combo.jfif" class="responsiveimage">
-									</div>
-									
-									<div class="col-5 meal-panel-info">
-										<div class="form-divs">
-											<h3>Beans</h3>
-											<h2>&#8358;350</h2>
-											<a href="modify_meal.html" class="form-input customer-button" style="text-decoration: none; text-align: center;">Modify</a>
-										</div>
-										<div class="form-divs">
-											<a href="#" class="form-input customer-button" style="text-decoration: none; text-align: center; background-color: red;" onclick="confirm('Removed ');">Remove</a>
-										</div>
-									</div>
-								</div>
-							</div>		
-							<div class="col-4 ">
-								<div class="row meal-panel" style="border-color: #B5B5B5;">
-									<div class="col-7 meal-panel-image" >
-										<img src="../images/wheat.jfif" class="responsiveimage">
-									</div>
-									
-									<div class="col-5 meal-panel-info">
-										<div class="form-divs">
-											<h3>Efo</h3>
-											<h2>&#8358;350</h2>
-											<a href="modify_meal.html" class="form-input customer-button" style="text-decoration: none; text-align: center;">Modify</a>
-										</div>
-										<div class="form-divs">
-											<a href="#" class="form-input customer-button" style="text-decoration: none; text-align: center; background-color: red;" onclick="confirm('Removed ');">Remove</a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-4 ">
-								<div class="row meal-panel" style="border-color: #B5B5B5;">
-									<div class="col-7 meal-panel-image" >
-										<img src="../images/jollof.jfif" class="responsiveimage">
-									</div>									
-									<div class="col-5 meal-panel-info">
-										<div class="form-divs">
-											<h3>Jollof</h3>
-											<h2>&#8358;350</h2>
-											<a href="modify_meal.html" class="form-input customer-button" style="text-decoration: none; text-align: center;">Modify</a>
-										</div>
-										<div class="form-divs">
-											<a href="#" class="form-input customer-button" style="text-decoration: none; text-align: center; background-color: red;"  onclick="confirm('Removed ');">Remove</a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-4 ">
-								<div class="row meal-panel" style="border-color: #B5B5B5;">
-									<div class="col-7 meal-panel-image" >
-										<img src="../images/potato.jfif" class="responsiveimage">
-									</div>									
-									<div class="col-5 meal-panel-info">
-										<div class="form-divs">
-											<h3>Potato</h3>
-											<h2>&#8358;350</h2>
-											<a href="modify_meal.html" class="form-input customer-button" style="text-decoration: none; text-align: center;">Modify</a>
-										</div>
-										<div class="form-divs">
-											<a href="#" class="form-input customer-button" style="text-decoration: none; text-align: center; background-color: red;" onclick="confirm('Removed ');">Remove</a>
-										</div>
-									</div>
-								</div>
-							</div>
+						<div class="col-10 borderedcol panel" style="overflow-x: auto;">
+							<table class="summary">
+								<thead>
+									<tr>
+										<th>No</th>
+										<th>All Meals</th>
+										<th>Actions</th>
+									</tr>
+								</thead>
+								<tbody class="dabody">
+									<tr>
+										<td>1</td>
+										<td>Eba & Efo</td>
+										<td><a href="modify_meal.html"><img src="../img/modify.png" class="responsiveimage"></a><a href=""><img src="../img/delete.gif" class="responsiveimage"></a></td>
+									</tr>
+									<tr>
+										<td>2</td>
+										<td>Fufu & Banga</td>
+										<td>
+											<a href="modify_meal.html"><img src="../img/modify.png" class="responsiveimage"></a>
+											<a href=""><img src="../img/delete.gif" class="responsiveimage"></a>
+										</td>
+									</tr>
+									<tr>
+										<td>3</td>
+										<td>Bread & Egg</td>
+										<td>
+											<a href="modify_meal.html"><img src="../img/modify.png" class="responsiveimage"></a>
+											<a href=""><img src="../img/delete.gif" class="responsiveimage"></a>
+										</td>
+									</tr>
+								</tbody>
+							</table>
 						</div>
 					</div>
 				</div>
-			</div>			
-		</section>
-
-		<!-- Footer -->
-	    <footer>
-	        <div class="footer">
-	            <div class="row">
-	                <div class="col-12">                   
-	                    <p class="copyright">2018 &copy; Book-A-Meal</p>
-	                </div>
-	            </div>
-	        </div>
-	    </footer>
-		<!-- End Footer -->
-		<!-- JS Files -->
-		<script type="text/javascript" src="../scripts/jquery-3.2.1.min.js"></script>
+			</section>
+		</main>
+		<footer>
+			&copy; 2018 | Book-A-Meal
+		</footer>
 	</body>
 </html>

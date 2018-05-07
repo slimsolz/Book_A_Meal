@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Book-A-Meal | Caterer</title>
+		<link rel="stylesheet" type="text/css" href="styles/index.css">
+	</head>
+	<body class="menu dash">
+		<main>
+			<header class="row">
+				<div class="col-3">
+					<h2><a href="home.html">Book<span class="logoA">-A-</span>Meal</a></h2>
+				</div>
+				<div class="col-8">
+					<nav class="nav">
+						<ul class="subjects">
+							<!-- <li><a href="dashboard.html" >Dashboard</a></li> -->
+							<li><a href="menu.html" class="active">Menu</a></li>
+							<li><a href="my-order.html" >My Order</a></li>
+							<li><a href="home.html">Logout</a></li>
+						</ul>					
+					</nav>	
+				</div>			
+			</header>		
+			<!-- MAIN CONTENT -->
+			<section class="row" style="margin: 20px">
+				<!-- MENU LIST -->
+				<div class="col-2"></div>
+				<div class="col-4 meallist">
+					<h2 >Today's Menu</h2>
+					<div class="col-10 borderedcol">
+						<h4>Jane's Store</h4>
+						<ul>
+							<li><a href="">Rice & Chicken</a></li>
+							<li><a href="">Spagetti</a></li>
+							<li><a href="">Wheat & Vegetable Soup</a></li>
+							<li><a href="">Beans & Vege</a></li>
+							<li><a href="">Potato</a></li>
+							<li><a href="">Jollof Rice</a></li>
+							<li><a href="">Fufu & Efo</a></li>
+						</ul>
+					</div>
+					<div class="col-10 borderedcol">
+						<h4>Mary's Store</h4>
+						<ul>
+							<li><a href="">Fufu & Efo</a></li>
+							<li><a href="">Jollof Rice</a></li>
+							<li><a href="">Potato</a></li>
+							<li><a href="">Beans & Vege</a></li>
+							<li><a href="">Wheat & Vegetable Soup</a></li>							
+							<li><a href="">Spagetti</a></li>
+							<li><a href="">Rice & Chicken</a></li>		
+						</ul>
+					</div>
+					<div class="col-10 borderedcol">
+						<h4>Special Resturent</h4>
+						<ul>
+							<li><a href="">Wheat & Vegetable Soup</a></li>
+							<li><a href="">Rice & Chicken</a></li>
+							<li><a href="">Jollof Rice</a></li>
+							<li><a href="">Fufu & Efo</a></li>
+							<li><a href="">Spagetti</a></li>					
+							<li><a href="">Beans & Vege</a></li>			
+							<li><a href="">Potato</a></li>
+						</ul>
+					</div>
+					<div class="col-10 borderedcol">
+						<h4>Choosen kitchen</h4>
+						<ul>
+							<li><a href="">Beans & Vege</a></li>
+							<li><a href="">Rice & Chicken</a></li>
+							<li><a href="">Jollof Rice</a></li>
+							<li><a href="">Spagetti</a></li>
+							<li><a href="">Fufu & Efo</a></li>	
+							<li><a href="">Potato</a></li>
+							<li><a href="">Wheat & Vegetable Soup</a></li>
+						</ul>
+					</div>
+					<div class="col-10 borderedcol">
+						<h4>Zeelicious</h4>
+						<ul>
+							<li><a href="">Jollof Rice</a></li>
+							<li><a href="">Fufu & Efo</a></li>
+							<li><a href="">Potato</a></li>
+							<li><a href="">Wheat & Vegetable Soup</a></li>
+							<li><a href="">Beans & Vege</a></li>
+							<li><a href="">Spagetti</a></li>
+						</ul>
+					</div>
+					<div class="col-10 borderedcol">
+						<h4>Nonye's Kitchen</h4>
+						<ul>
+							<li><a href="">Rice & Chicken</a></li>
+							<li><a href="">Spagetti</a></li>
+							<li><a href="">Wheat & Vegetable Soup</a></li>
+							<li><a href="">Beans & Vege</a></li>
+							<li><a href="">Potato</a></li>
+							<li><a href="">Jollof Rice</a></li>
+							<li><a href="">Fufu & Efo</a></li>
+						</ul>
+					</div>
+				</div>
+				<!-- END MENU LIST -->
+				<div class="col-1"></div>
+				<!-- MEAL DISPLAY -->
+				<div class="col-4" style="color: black">
+					<div class="col-12 col-s-12">
+						<img src="img/stand.jfif" class="mealimage">
+					</div>
+					<div class="col-12">
+						<form>
+							<div class="form-divs">
+								<label>Fufu And Vegetable Soup</label>
+							</div>
+							<div class="form-divs">
+								<label>Quantity (Pre plate)</label>
+							</div>
+							<div class="form-divs">
+								<select class="form-input" id="quantity" onchange="getTotal()">
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+								</select>
+							</div>
+							<div class="form-divs" id="total">
+								<label>Total: &#8358;350</label>
+							</div>
+							<div class="form-divs">
+								<input type="button" name="" value="ADD TO ORDERS" class="form-input" style="background-color: green; color: white">
+							</div>
+						</form>
+					</div>
+				</div>
+				<!-- END MEAL DISPLAY -->
+			</section>
+			<!-- END MAIN CONTENT -->
+		</main>
+		<footer>
+			&copy; 2018 | Book-A-Meal
+		</footer>
+
+		<script type="text/javascript" src="scripts/myscript.js"></script>
+
+	</body>
+</html>
