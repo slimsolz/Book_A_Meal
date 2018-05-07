@@ -25,6 +25,28 @@ body{
   background-size: cover;
 }
 
+.menu{
+  color: white;
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(../img/recipes.jpg) no-repeat center;
+  /*height: 100vh;*/
+  background-size: cover;
+}
+
+.order{
+  color: white;
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(../img/rec.jpg) no-repeat center;
+  /*height: 100vh;*/
+  background-size: cover;
+}
+
+
+.{
+  color: white;
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(../img/menubackground.jpg) no-repeat center;
+  /*height: 100vh;*/
+  background-size: cover;
+}
+
 /*clear floats after the columns*/
 .row::after {
   content: "";
@@ -92,6 +114,15 @@ main header a{
   font-family: "Rock Salt", sans-serif;
 }
 
+main header .nav{
+  float: right;
+  margin-right: 30px;
+}
+
+main header .nav li{
+  display: inline-block;
+}
+
 main header a:hover{
   color: darkorange;
 }
@@ -115,6 +146,7 @@ footer{
 
 .borderedcol{
   border: 1px solid white;
+  margin: 20px;
 }
 
 section{
@@ -139,6 +171,22 @@ ul.subjects{
   letter-spacing: 3px;
   padding-top: 8px;
   line-height: 38px;
+}
+
+.dash main header ul.subjects{
+  margin: 1em 0; padding-left: 0;
+  list-style: none;
+  letter-spacing: 3px;
+  line-height: 38px;
+}
+
+.dash main header ul.subjects li a:hover{
+  border: 1px solid darkorange;
+}
+
+.dash main header ul.subjects li .active{
+  border: 1px solid darkorange;
+  color: darkorange;
 }
 
 section .panel{
@@ -170,6 +218,16 @@ section .panel{
   text-align: center;
   border-collapse: collapse;
 }
+
+.order .summary td, .order .summary th{
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.order .summary td:last-of-type, .order .summary tfoot th:last-of-type {
+  text-align: center;
+}
+
 
 /*.summary .dabody{
   display: block;
@@ -279,6 +337,12 @@ section .panel{
   max-width: 100%;
 }
 
+.mealimage{
+  width: auto;
+  height: auto;
+  max-width: 100%;
+}
+
 .home header{
   border-bottom: 1px solid white;
 }
@@ -315,4 +379,28 @@ section .panel{
 
 .signup .form-input{
   border: 1px solid darkorange;
+}
+
+.meallist h2, h4{
+  color: black;
+  text-align: center;
+}
+
+.meallist h4{
+  background-color: lightgreen;
+}
+
+.meallist ul li{
+  list-style: none
+}
+
+.meallist ul li a{
+  font-size: 12px;
+  color: black;
+  font-family: "Rock Salt", sans-serif;
+}
+.center {
+  margin: 0 auto;
+  float: none!important;
+  display: block;
 }

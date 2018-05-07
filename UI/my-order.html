@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Book-A-Meal | Caterer</title>
+		<link rel="stylesheet" type="text/css" href="styles/index.css">
+	</head>
+	<body class="order dash">
+		<main>
+			<header class="row">
+				<div class="col-3">
+					<h2><a href="home.html">Book<span class="logoA">-A-</span>Meal</a></h2>
+				</div>
+				<div class="col-8">
+					<nav class="nav">
+						<ul class="subjects">
+							<!-- <li><a href="dashboard.html" >Dashboard</a></li> -->
+							<li><a href="menu.html" >Menu</a></li>
+							<li><a href="my-order.html" class="active">My Order</a></li>
+							<li><a href="home.html">Logout</a></li>
+						</ul>					
+					</nav>	
+				</div>			
+			</header>		
+
+			<section class="row">
+				<!-- MAIN CONTENT -->
+				<div class="col-8 center order">
+					<div class="menu-heading">
+						<h2>Your Order</h2>
+					</div>
+					<div class="order-list">
+						<div>
+							<table class="summary">
+								<thead>
+									<tr>
+										<th>No</th>
+										<th>Meals</th>
+										<th>Quantity</th>
+										<th>Amount</th>
+										<th>Remove</th>
+										
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>1</td>
+										<td>Eba & Efo</td>
+										<td>
+											<input type="text" name="" value="2">
+										</td>											
+										<td>1000</td><td class="no">&#9747;</td>
+									</tr>
+									<tr>
+										<td>2</td>
+										<td>Fufu & Banga</td>
+										<td>
+											<input type="text" name="" value="2">
+										</td>
+										<td>1000</td>
+										<td class="no">&#9747;</td>
+										
+									</tr>
+									<tr>
+										<td>3</td>
+										<td>Bread & Egg</td>
+										<td>
+											<input type="text" name="" value="2">
+										</td>
+										<td>1000</td>
+										<td class="no">&#9747;</td>
+										
+									</tr>
+								</tbody>
+								<tfoot>
+									<tr>
+										<th>Total:</th>
+										<th></th>
+										<th></th>
+										<th>3,000</th>
+										<th></th>										
+									</tr>
+								</tfoot>
+							</table>
+							<div class="form-divs">
+								<label style="color:red; font-style: italic;" >NOTE: Once an order is placed, it cannot be cancelled.</label>
+								<input type="button" name="" value="PLACE ORDER" style="background-color: green; color: white" class="form-input">
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- END MAIN CONTENT -->
+			</section>
+		</main>
+		<footer>
+			&copy; 2018 | Book-A-Meal
+		</footer>
+	</body>
+</html>
