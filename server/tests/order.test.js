@@ -30,7 +30,7 @@ describe('POST /orders', () =>{
     });
   });
 
-  it('should return 400 if no order_title', (done) =>{
+  it('should return 400 if no meal_title', (done) =>{
     chai.request(app)
     .post('/api/v1/orders')
     .send(
@@ -57,7 +57,7 @@ describe('POST /orders', () =>{
     .send(
     {
       id: 1,
-			Orders_title: 'Beans And Bread',
+			meal_title: 'Beans And Bread',
 			amount: 700,
 			delivery_address: '3 Oshodi road',
 			time_placed: new Date(2018, 4, 24, 8, 0 ),
@@ -78,7 +78,7 @@ describe('POST /orders', () =>{
     .send(
     {
       id: 1,
-			Orders_title: 'Beans And Bread',
+			meal_title: 'Beans And Bread',
 			quantity: 2,
 			amount: 700,
 			time_placed: new Date(2018, 4, 24, 8, 0 ),
@@ -154,7 +154,7 @@ describe('PUT /orders/:orderId', () =>{
 
   it('should return 400 if meal not found', (done) =>{
     chai.request(app)
-    .put(`/api/v1/orders/5`)
+    .put('/api/v1/orders/9')
     .send({
       id: 1,
 			meal_title: 'Rice And Chicken',
