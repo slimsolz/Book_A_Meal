@@ -1,5 +1,4 @@
 function myFunction() {
-	/*let all_meals = ['Rice & stew', 'Eba & Efo', 'Fufu & Egusi', 'Pancake', 'Friedrice', 'Bread & Egg'];*/
 	let today_meal = [];
 	let selectedMeal = '';
 
@@ -25,11 +24,6 @@ function myFunction() {
 	console.log(today_meal)
 
 	for (let j = 0; j < today_meal.length; j++) {	
-		/*let listText = document.createTextNode(today_meal[j]);
-		
-		let myElement = document.createElement('li');
-		ulElement.appendChild(myElement);	
-		myElement.appendChild(listText);*/
 		ulElement.innerHTML += `<li>${today_meal[j]}</li>`;
 	}	   
 }
