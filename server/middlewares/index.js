@@ -27,7 +27,7 @@ export default class Middleware {
 	}
 
 	static validateSignup(req, res, next){
-		const { email, username, password } = req.body;
+		const { storeName, username, email, password, phone_no, address, img_path } = req.body;
 		const error = {};
 
 		if (!email || (email && !validator.isEmail(email))) {

@@ -1,13 +1,13 @@
 module.exports = (sequelize, DataTypes) => {
-  const Caterer = sequelize.define('Caterer', {
-    storeName:{
+  const User = sequelize.define('User', {
+    name:{
      type: DataTypes.STRING,
      allowNull: false
    },
     username: {
       type: DataTypes.STRING,
       allowNull: false
-    }
+    },
     email:{
      type: DataTypes.STRING,
      allowNull: false,
@@ -17,36 +17,28 @@ module.exports = (sequelize, DataTypes) => {
      type: DataTypes.STRING,
      allowNull: false
     },
-    phone_no:{
-     type: DataTypes.STRING,
-     allowNull: false
-    },
-    address:{
-     type: DataTypes.STRING,
-     allowNull: false
-    },
-    img_path:{
+    role:{
      type: DataTypes.STRING,
      allowNull: false
     }
   });
 
-  Caterer.associate = (models) => {
+  User.associate = (models) => {
     // associations can be defined here
-    Caterer.hasMany(models.Meal, {
-      foreginKey: 'catererId',
+    User.hasMany(models.Meal, {
+      foreginKey: 'userId',
       onDelete: 'CASCADE'
     });
 
-    Caterer.hasMany(models.Menu, {
-      foreginKey: 'catererId',
+    User.hasMany(models.Menu, {
+      foreginKey: 'userId',
       onDelete: 'CASCADE'
     });
 
-    Caterer.hasMany(models.Order, {
-      foreginKey: 'catererId',
+    User.hasMany(models.Order, {
+      foreginKey: 'userId',
       onDelete: 'CASCADE'
     });
   };
-  return Caterer;
+  return User;
 };

@@ -20,8 +20,8 @@ module.exports = (sequelize, DataTypes) => {
 
   Meal.associate = (models) => {
     // associations can be defined here
-    Meal.belongsTo(models.Caterer, {
-      foreginKey: 'catererId',
+    Meal.belongsTo(models.User, {
+      foreginKey: 'userId',
       onDelete: 'CASCADE'
     });
 

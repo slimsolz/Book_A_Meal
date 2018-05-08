@@ -1,12 +1,10 @@
 import express from 'express';
-import db from '../models/dummy-db';
 import Middleware from '../middlewares';
-import CatererController from '../controllers/catererController';
-import CustomerController from '../controllers/customerController';
+import UserController from '../controllers/userController';
 import MealController from '../controllers/mealController';
 import MenuController from '../controllers/menuController';
 import OrderController from '../controllers/orderController';
-import DashboardController from '../controllers/dashboardController'
+import DashboardController from '../controllers/dashboardController';
 
 
 const router = express.Router();
@@ -18,13 +16,10 @@ router.get('/', (req, res, next) => {
   });
 });
 
-//Caterers
-router.post('/caterer/signup', Middleware.validateSignup, CatererController.signUp );
-router.post('/caterer/signin', Middleware.validateSignin, CatererController.signIn);
 
 //Users
-router.post('/customer/signup', Middleware.validateSignup, CustomerController.signUp);
-router.post('/customer/signin', Middleware.validateSignin, CustomerController.signIn);
+router.post('/user/signup', Middleware.validateSignup, UserController.signUp);
+router.post('/user/signin', UserController.signin);
 
 //Meals
 router.get('/meals', MealController.getMeals);

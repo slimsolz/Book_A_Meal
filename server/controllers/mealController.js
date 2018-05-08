@@ -1,4 +1,4 @@
-import db from '../models/dummy-db';
+/*import db from '../models/dummy-db';*/
 
 export default class MealController{
 	//Add meal
