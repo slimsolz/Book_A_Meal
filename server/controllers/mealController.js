@@ -82,10 +82,21 @@ export default class MealController{
 	}
 
 	static getMeals(req, res){
-		return res.status(200).json({
-			status: 'success',
-			message: 'All meals',
-			allMeals: db.meals
-		})
+		Meal.findAll({}).then((meals) => {
+			if (meals.length === 0) {
+				return res.status(404).json({
+					status: 'error',
+					message: 'No meal found'
+				});
+			}
+			return res.status(200).json({
+				status: 'success',
+				message: 'Meals Found',
+				meals
+			});
+		}).catch((err) => res.status(500).json({
+			status: 'error',
+			message: 'Server Error'
+		}));
 	}
 }
