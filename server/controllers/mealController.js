@@ -34,35 +34,18 @@ export default class MealController{
 
 	//Delete a meal
 	static deleteMeal(req, res){
-		const id = parseInt(req.params.id, 10);
-		const catererId = parseInt(req.params.catererId, 10);
-		let mealFound;
-		let itemIndex;
-
-		//Find meal in db
-		db.meals.map((meal, index) =>{
-			if (meal.catererId === catererId) {
-				if (meal.id === id) {
-					mealFound = meal;
-					itemIndex = index;
-				}
+		Meal.destroy({where: { id: req.params.id}}).then((deleteStatus) => {
+			if (!deleteStatus) {
+				return res.status(500).json({
+					status: 'error',
+					message: 'Unable to delete Meal'
+				});
 			}
-		});
-
-		//if meal not found
-		if (!mealFound) {
-			return res.status(400).json({
-				status: 'error',
-				message: 'Meal not found'
+			return res.status(200).json({
+				status: 'status',
+				message: 'Meal Deleted Successfully'
 			});
-		}
-
-		//if meal found
-		db.splice(itemIndex, 1);
-		return res.status(200).json({
-			status: 'success',
-			message: 'Meal deleted Successfully'
-		});	
+		});
 	}
 
 	//Update meal
@@ -85,7 +68,7 @@ export default class MealController{
 				}).then((updatedMeal) => {
 					if (updatedMeal) {
 						return res.status(200).json({
-							status: 'error',
+							status: 'success',
 							message: 'Meal updated Successfully'
 						});
 					}
@@ -96,38 +79,6 @@ export default class MealController{
 					message: 'Server Error'
 				});
 			});
-	}
-
-	//get all meals for a particular Caterer
-	static getAllMeals(req, res){
-		const catererId = parseInt(req.params.catererId, 10);
-
-		let filteredMeals = db.meals.filter((meal) => meal.catererId === catererId);
-		return res.status(200).json({
-			status: 'success',
-			message: 'All Meals',
-			meals: filteredMeals
-		});
-	}
-
-	//get meal by id for a particular Caterer
-	static getMealById(req, res){
-		const id = parseInt(req.params.id, 10);
-		const catererId = parseInt(req.params.catererId, 10);
-
-		const meal = db.meals.find((meal) =>meal.catererId === catererId && meal.id === id);
-		if (meal) {
-			return res.status(200).json({
-				status: 'success',
-				message: 'Meal Retrieved Successfully',
-				meal
-			});
-		}
-		
-		return res.status(404).json({
-			status: 'error',
-			message: 'Meal Not Found'
-		});
 	}
 
 	static getMeals(req, res){
