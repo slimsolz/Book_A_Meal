@@ -67,55 +67,35 @@ export default class MealController{
 
 	//Update meal
 	static updateMeal(req, res){
-		const id = parseInt(req.params.id, 10);
-		const catId = parseInt(req.params.catererId, 10);
-		let mealFound;
-		let itemIndex;
-
-		//Find meal in db
-		db.meals.map((meal, index) =>{
-			if (meal.catererId === catId) {
-				if (meal.id === id) {
-					mealFound = meal;
-					itemIndex = index;
+		const { mealName, price, imgpath, available } = req.body;
+		Meal.findById(req.params.id)
+			.then((meal) => {
+				if (!meal) {
+					return res.status(404).json({
+						status: 'error',
+						message: 'Meal not found'
+					});
 				}
-			}
-		});
 
-		//if meal not found
-		if (!mealFound) {
-			return res.status(400).json({
-				status: 'error',
-				message: 'Meal not found'
+				meal.update({
+					mealName: mealName || meal.mealName,
+					price: price || meal.price,
+					imgpath: imgpath || meal.imgpath,
+					available: available || meal.available
+				}).then((updatedMeal) => {
+					if (updatedMeal) {
+						return res.status(200).json({
+							status: 'error',
+							message: 'Meal updated Successfully'
+						});
+					}
+				});
+			}).catch((err) => {
+				return res.status(500).json({
+					status: 'error',
+					message: 'Server Error'
+				});
 			});
-		}
-
-		const { title, price, imageurl, available } = req.body;
-
-		//validate the price field
-		if (!Number.isInteger(price)) {
-			return res.status(400).json({
-				status: 'error',
-				message: 'Price Must be a number'
-			});
-		}
-
-		const updatedMeal = {
-			id: mealFound.id,
-			title: title,
-			price: price,
-			imageurl,
-			available: available || false,
-			catererId: mealFound.catererId
-		};
-
-		db.meals.splice(itemIndex, 1, updatedMeal);
-		return res.status(201).json({
-			status: 'success',
-			message: 'Meal Updated Successfully',
-			updatedMeal
-		});
-
 	}
 
 	//get all meals for a particular Caterer

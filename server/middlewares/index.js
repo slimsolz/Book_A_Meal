@@ -102,11 +102,10 @@ export default class Middleware {
 		const error = {};
 
 		const id = parseInt(req.params.id, 10);
-		const catererId = parseInt(req.params.catererId, 10);		
-		const { title, price, imageurl } = req.body;
+		const { mealName, price, imgpath, available  } = req.body;
  
-	  if (!title || (title && validator.isEmpty(title.trim()))) {
-	    error.title = 'Meal name is required';
+	  if (!mealName || (mealName && validator.isEmpty(mealName.trim()))) {
+	    error.mealName = 'Meal name is required';
 	  }
 
 	  if (!price) {
@@ -117,8 +116,8 @@ export default class Middleware {
 	    error.price = 'Meal price must be numbers';
 	  }
 
-	  if (!imageurl || (imageurl && validator.isEmpty(imageurl.trim()))) {
-	    error.imageurl = 'Meal image url is required';
+	  if (!imgpath || (imgpath && validator.isEmpty(imgpath.trim()))) {
+	    error.imgpath = 'Meal image url is required';
 	  }
 
 		if (isEmpty(error)) {

@@ -29,7 +29,7 @@ router.get('/meals/:catererId/:id', MealController.getMealById);
 */
 router.post('/meals', Middleware.isLoggedIn, Middleware.validateAddMeal, MealController.addMeal);
 router.delete('/meals/:catererId/:id', MealController.deleteMeal);
-router.put('/meals/:catererId/:id', Middleware.validateUpdateMeal, MealController.updateMeal);
+router.put('/meals/:id', Middleware.isLoggedIn, Middleware.validateUpdateMeal, MealController.updateMeal);
 
 //Menu
 router.post('/menu/:catererId', MenuController.setMenu);
