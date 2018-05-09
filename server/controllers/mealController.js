@@ -1,35 +1,35 @@
-/*import db from '../models/dummy-db';*/
+import Model from '../models';
+
+const { Meal } = Model;
+
 
 export default class MealController{
 	//Add meal
 	static addMeal(req, res){
-		const { title, price, imageurl, available, catererId } = req.body;
-
-		const newMeal = {
-			id: db.meals[db.meals.length - 1].id + 1,
-			title,
-			price,
-			imageurl,
-			available: available || false,
-			catererId
-		};
+		const { mealName, price, imgpath, available } = req.body;
 
 		//check if meal exists
-		const meal = db.meals.find((meal) => meal.catererId === catererId && meal.title === title);
-		if (meal) {
-			return res.status(400).json({
-				status: 'error',
-				message: 'Meal already exists'
-			});
-		}
-				
-
-		db.meals.push(newMeal);
-		return res.status(201).json({
-			status: 'success',
-			message: 'Successfully added meal',
-			meals: newMeal
+		Meal.find({ where: { mealName }}).then((meal) => {
+			if (meal) {
+				return res.status(409).json({
+					status: 'error',
+					message: 'Meal already exists'
+				});
+			}
 		});
+
+		Meal.create({
+			mealName, price, imgpath, available
+		}).then((meal) => {
+			res.status(201).json({
+				status: 'success',
+				message: 'Successfully added meal',
+				meal
+			})
+		}).catch((err) => res.status(500).json({
+			status: 'error',
+			message: err.stack
+		}));
 	}
 
 	//Delete a meal

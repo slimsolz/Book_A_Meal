@@ -1,8 +1,23 @@
 import validator from 'validator';
 import isEmpty from 'lodash.isempty';
+import jwt from 'jsonwebtoken';
 
 
 export default class Middleware {
+
+	static isLoggedIn(req, res, next) {
+    const token = req.body.token || req.query.token || req.get('Authorization').slice(7);
+    jwt.verify(token, process.env.SECRET, (err, decoded) => {
+      if (err) {
+        return res.status(401).json({
+          status: 'error',
+          message: 'User not logged in'
+        });
+      }
+      req.userId = decoded.id;
+      return next();
+    });
+  }
 
 	static validateSignin(req, res, next){
 		const { username, password } = req.body;
@@ -55,11 +70,10 @@ export default class Middleware {
 	static validateAddMeal(req, res, next){
 		const error = {};
 	  const {
-	    title, price, imageurl, available, catererId
-	  } = req.body;
+	    mealName, price, imgpath, available  } = req.body;
  
-	  if (!title || (title && validator.isEmpty(title.trim()))) {
-	    error.title = 'Meal name is required';
+	  if (!mealName || (mealName && validator.isEmpty(mealName.trim()))) {
+	    error.mealName = 'Meal name is required';
 	  }
 
 	  if (!price) {
@@ -70,16 +84,8 @@ export default class Middleware {
 	    error.price = 'Meal price must be numbers';
 	  }
 
-	  if (!imageurl || (imageurl && validator.isEmpty(imageurl.trim()))) {
-	    error.imageurl = 'Meal image url is required';
-	  }
-
-	  if (!catererId) {
-	    error.catererId = 'Caterer Id is required';
-	  }
-
-	  if (catererId && isNaN(catererId)) {
-	    error.catererId = 'catererId must be numbers';
+	  if (!imgpath || (imgpath && validator.isEmpty(imgpath.trim()))) {
+	    error.imgpath = 'Meal image url is required';
 	  }
 
 	  if (isEmpty(error)) {

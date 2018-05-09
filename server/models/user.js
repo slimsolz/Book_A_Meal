@@ -25,18 +25,8 @@ module.exports = (sequelize, DataTypes) => {
 
   User.associate = (models) => {
     // associations can be defined here
-    User.hasMany(models.Meal, {
-      foreginKey: 'userId',
-      onDelete: 'CASCADE'
-    });
-
-    User.hasMany(models.Menu, {
-      foreginKey: 'userId',
-      onDelete: 'CASCADE'
-    });
-
     User.hasMany(models.Order, {
-      foreginKey: 'userId',
+      foreignKey: 'userId',
       onDelete: 'CASCADE'
     });
   };

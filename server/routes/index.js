@@ -23,9 +23,11 @@ router.post('/user/signin', UserController.signin);
 
 //Meals
 router.get('/meals', MealController.getMeals);
+/*
 router.get('/meals/:catererId', MealController.getAllMeals);
 router.get('/meals/:catererId/:id', MealController.getMealById);
-router.post('/meals', Middleware.validateAddMeal, MealController.addMeal);
+*/
+router.post('/meals', Middleware.isLoggedIn, Middleware.validateAddMeal, MealController.addMeal);
 router.delete('/meals/:catererId/:id', MealController.deleteMeal);
 router.put('/meals/:catererId/:id', Middleware.validateUpdateMeal, MealController.updateMeal);
 

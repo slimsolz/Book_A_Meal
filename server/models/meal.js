@@ -20,19 +20,14 @@ module.exports = (sequelize, DataTypes) => {
 
   Meal.associate = (models) => {
     // associations can be defined here
-    Meal.belongsTo(models.User, {
-      foreginKey: 'userId',
-      onDelete: 'CASCADE'
-    });
-
-    Meal.belongsTo(models.Order, {
-      foreginKey: 'orderId',
+    Meal.hasMany(models.Order, {
+      foreignKey: 'mealId',
       onDelete: 'CASCADE'
     });
 
     Meal.belongsToMany(models.Menu, {
       through: 'MealMenu',
-      foreginKey: 'mealId',
+      foreignKey: 'mealId',
       onDelete: 'CASCADE'
     });
   };
