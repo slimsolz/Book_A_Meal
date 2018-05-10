@@ -24,8 +24,8 @@ router.post('/user/signin', UserController.signin);
 //Meals
 router.get('/meals',  Middleware.isLoggedIn, MealController.getMeals);
 router.post('/meals', Middleware.isLoggedIn, Middleware.validateAddMeal, MealController.addMeal);
-router.delete('/meals/:id', Middleware.isLoggedIn, MealController.deleteMeal);
-router.put('/meals/:id', Middleware.isLoggedIn, Middleware.validateUpdateMeal, MealController.updateMeal);
+router.delete('/meals/:id', Middleware.isLoggedIn, Middleware.validParam, MealController.deleteMeal);
+router.put('/meals/:id', Middleware.isLoggedIn, Middleware.validParam, Middleware.validateUpdateMeal, MealController.updateMeal);
 
 //Menu
 router.post('/menu/:catererId', MenuController.setMenu);
@@ -33,7 +33,7 @@ router.get('/menu', MenuController.getMenu);
 
 /*order*/
 router.post('/orders', Middleware.isLoggedIn, Middleware.validateOrder, OrderController.placeOrder);
-router.put('/orders/:id', Middleware.isLoggedIn, Middleware.validateOrderUpdate, OrderController.modifyOrder);
+router.put('/orders/:id', Middleware.isLoggedIn, Middleware.validParam, Middleware.validateOrderUpdate, OrderController.modifyOrder);
 router.get('/orders', Middleware.isLoggedIn, OrderController.getAllOrders);
 
 // 404

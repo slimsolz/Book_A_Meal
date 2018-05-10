@@ -34,7 +34,6 @@ export default class OrderController{
 
 		Order.findById(req.params.id)
 			.then((order) => {
-				console.log(order.status)
 				if (!order) {
 					return res.status(404).json({
 						status: 'error',
