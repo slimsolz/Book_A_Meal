@@ -131,12 +131,9 @@ export default class Middleware {
 	}
 
 	static validateOrder(req, res, next){
-		const { meal_title, quantity, delivery_address, customerId, catererId } = req.body;
+		const { quantity, total, deliveryAddress, status } = req.body;
 		const error = {};
 
-		if (!meal_title || (meal_title && validator.isEmpty(meal_title.trim()))) {
-	    error.meal_title = 'Meal name is required';
-	  }
 
 	  if (!quantity) {
 	    error.quantity = 'quantity is required';
@@ -146,26 +143,11 @@ export default class Middleware {
 	    error.quantity = 'quantity must be numbers';
 	  }
 
-	  if (!delivery_address || (delivery_address && validator.isEmpty(delivery_address.trim()))) {
-	    error.delivery_address = 'delivery_address is required';
+	  if (!deliveryAddress || (deliveryAddress && validator.isEmpty(deliveryAddress.trim()))) {
+	    error.deliveryAddress = 'deliveryAddress is required';
 	  }
 
-	  if (!customerId) {
-	    error.customerId = 'customer Id is required';
-	  }
-
-	  if (customerId && isNaN(customerId)) {
-	    error.customerId = 'customer Id must be numbers';
-	  }
-
-	  if (!catererId) {
-	    error.catererId = 'Caterer Id is required';
-	  }
-
-	  if (catererId && isNaN(catererId)) {
-	    error.catererId = 'caterer Id must be numbers';
-	  }
-
+	 
 		if (isEmpty(error)) {
 	    return next();
 	  }
@@ -177,12 +159,9 @@ export default class Middleware {
 	}
 
 	static validateOrderUpdate(req, res, next){
-		const { meal_title, quantity, delivery_address } = req.body;
+		const { quantity, total, deliveryAddress, status } = req.body;
 		const error = {};
 
-		if (!meal_title || (meal_title && validator.isEmpty(meal_title.trim()))) {
-	    error.meal_title = 'Meal name is required';
-	  }
 
 	  if (!quantity) {
 	    error.quantity = 'quantity is required';
@@ -192,9 +171,10 @@ export default class Middleware {
 	    error.quantity = 'quantity must be numbers';
 	  }
 
-	  if (!delivery_address || (delivery_address && validator.isEmpty(delivery_address.trim()))) {
-	    error.delivery_address = 'delivery_address is required';
+	  if (!deliveryAddress || (deliveryAddress && validator.isEmpty(deliveryAddress.trim()))) {
+	    error.deliveryAddress = 'deliveryAddress is required';
 	  }
+
 
 	  if (isEmpty(error)) {
 	    return next();

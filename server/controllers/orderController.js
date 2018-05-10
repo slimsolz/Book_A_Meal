@@ -1,83 +1,28 @@
-/*import db from '../models/dummy-db';*/
+import Model from '../models';
+
+const { Order, Meal } = Model;
 
 export default class OrderController{
 	//place Order
 	static placeOrder(req, res){
-		const { meal_title, quantity, delivery_address, customerId, catererId } = req.body;
+		const { quantity, total, deliveryAddress, status } = req.body;
+		const { userId } = req;
+		const mealId = 4;
 
-		const new_order = {
-			id: db.orders[db.orders.length - 1].id + 1,
-			meal_title,
-			quantity,
-			amount: (350 * quantity),
-			delivery_address,
-			time_placed: new Date(),
-			customerId,
-			catererId
-		};
-
-		//check if order has bin made already
-		db.orders.push(new_order);
-		return res.status(201).json({
-			status: 'success',
-			message: 'Order placed Successfully',
-			order: new_order
-		});
-	}
-
-	//Modify order
-	static modifyOrder(req, res){
-		const orderId = parseInt(req.params.orderId, 10);
-		let orderFound;
-		let itemIndex;
-
-		//Find order in db
-		db.orders.map((order, index) =>{
-			if (order.id === orderId) {
-					orderFound = order;
-					itemIndex = index;
-			}
-		});
-
-		//if order not found
-		if (!orderFound) {
-			return res.status(400).json({
+		Order.create({
+			quantity, total, deliveryAddress, status, userId, mealId
+		}).then((order) => {
+			res.status(201).json({
+				status: 'success',
+				message: 'Order placed Successfully',
+				order
+			})
+		}).catch((err) => {
+			res.status(500).json({
 				status: 'error',
-				message: 'order not found'
+				message: 'Server error'
 			});
-		}
-
-		const { meal_title, quantity, delivery_address } = req.body;
-
-		const modified_order = {
-			id: orderFound.id,
-			meal_title: meal_title ,
-			quantity: quantity ,
-			amount: (350 * quantity),
-			delivery_address: delivery_address,
-			time_placed: new Date(),
-			customerId: orderFound.customerId,
-			catererId: orderFound.catererId
-		};
-
-		db.meals.splice(itemIndex, 1, modified_order);
-		return res.status(201).json({
-			status: 'success',
-			message: 'Order Modified and Placed Successfully',
-			order: modified_order
-		});
-	}
-
-	//get all order
-	static getAllOrders(req, res){
-		const catererId = parseInt(req.params.catererId, 10);
-
-		let filteredOrders = db.orders.filter((order) => order.catererId === catererId);
-		return res.status(200).json({
-			status: 'success',
-			message: 'All Orders',
-			orders: filteredOrders
-		});
+		});		
 	}
 
 }

@@ -1,4 +1,6 @@
-/*import db from '../models/dummy-db';*/
+import Model from '../models';
+
+const { Menu } = Model;
 
 export default class MenuController {
 	//POST Menu

@@ -9,7 +9,7 @@ export default class MealController{
 		const { mealName, price, imgpath, available } = req.body;
 
 		//check if meal exists
-		Meal.find({ where: { mealName }}).then((meal) => {
+		Meal.find({ where: { mealName } }).then((meal) => {
 			if (meal) {
 				return res.status(409).json({
 					status: 'error',
@@ -51,6 +51,7 @@ export default class MealController{
 	//Update meal
 	static updateMeal(req, res){
 		const { mealName, price, imgpath, available } = req.body;
+		
 		Meal.findById(req.params.id)
 			.then((meal) => {
 				if (!meal) {
