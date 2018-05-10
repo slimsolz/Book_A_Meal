@@ -76,5 +76,24 @@ export default class OrderController{
 			});
 	}
 
+	//get all order
+	static getAllOrders(req, res){
+		Order.findAll({}).then((orders) => {
+			if (orders.length === 0) {
+				return res.status(404).json({
+					status: 'error',
+					message: 'No order found'
+				});
+			}
+			return res.status(200).json({
+				status: 'success',
+				message: 'Orders Found',
+				orders
+			});
+		}).catch((err) => res.status(500).json({
+			status: 'error',
+			message: 'Server Error'
+		}));
+	}
 
 }
