@@ -1,44 +1,30 @@
 import Model from '../models';
 
-const { Menu } = Model;
+const { Menu, Meal } = Model;
 
 export default class MenuController {
 	//POST Menu
 	static setMenu(req, res){
-		const catererId = parseInt(req.params.catererId, 10);
-		const { title } = req.body;
+		const { ids } = req.body;
+		const { userId } = req;
+		let availableMeals;
 
-		if (!title) {
-			return res.status(400).json({
-				status: 'error',
-				message: 'title is required'
+		Meal.findAll({}).then((meals) => {
+			availableMeals = meals.filter((meal) =>{
+				ids.includes(meal.id);
 			});
-		}
-
-		const menu = {
-			id: db.menu.length + 1,
-			catererId,
-			title			
-		}
-
-		//add to db menu
-		db.menu.push(menu);
-		return res.status(201).json({
-		 	status: 'success',
-		 	message: 'menu set successfully',
-		 	title: db.menu
-		 });
+		});
 	}
 	
 	
 	//GET Menu
-	static getMenu(req, res){		
-		return res.status(200).json({
-			status: 'success',
-			message: 'All Menus',
-			menu: db.menu
-		});
-	}
+	/*static getMenu(req, res){		
+	}*/
 
 	
 }
+
+
+/*
+
+*/

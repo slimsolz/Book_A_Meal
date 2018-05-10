@@ -7,11 +7,12 @@
     "start": "babel-node server/app.js",
     "dev-start": "nodemon --exec babel-node server/app.js",
     "build": "babel server -d server/dist --ignore server/dist",
-    "test": "nyc --reporter=html --reporter=text mocha server/tests/ --exit --compilers js:babel-core/register",
+    "test": "cross-env NODE_ENV=test SECRET=testsecret nyc --reporter=html --reporter=text mocha server/tests/auth.test.js --exit --compilers js:babel-core/register",
     "test-watch": "nodemon --exec \"npm test\"",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
-    "seq": "sequelize db:migrate",
-    "undo": "sequelize db:migrate:undo:all"
+    "migrate": "sequelize db:migrate",
+    "pretest": "sequelize db:migrate:undo:all --env test && sequelize db:migrate --env test",
+    "migrate-undo": "sequelize db:migrate:undo:all"
   },
   "nyc": {
     "exclude": [
@@ -33,6 +34,7 @@
     "body-parser": "^1.18.2",
     "chai": "^4.1.2",
     "chai-http": "^4.0.0",
+    "cross-env": "^5.1.5",
     "dotenv": "^5.0.1",
     "express": "^4.16.3",
     "jsonwebtoken": "^8.2.1",

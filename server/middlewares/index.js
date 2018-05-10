@@ -2,6 +2,9 @@ import validator from 'validator';
 import isEmpty from 'lodash.isempty';
 import jwt from 'jsonwebtoken';
 import isInt from 'validator/lib/isInt';
+import Model from '../models';
+
+const { User } = Model;
 
 
 export default class Middleware {
@@ -20,13 +23,28 @@ export default class Middleware {
     });
   }
 
+  static checkRole(req, res, next){
+  	const { userId } = req;
+
+  	User.findOne({ where: { id: userId, role: 'caterer' }})
+  	.then((user) => {
+  		if (!user) {
+  			return res.status(401).json({
+  				status: 'error',
+  				message: 'Do not have perission to perfom action'
+  			})
+  		}
+  		next();
+  	});
+  }
+
   static validParam(req, res, next) {
     const reqId = req.params.id;
     const id = isInt(reqId);
     if (!id) {
       return res.status(400).json({
         status: 'error',
-        message: 'Invalid params'
+        message: 'Invalid parameter'
       });
     }
     next();
