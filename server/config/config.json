@@ -14,7 +14,7 @@
     "dialect": "postgres"
   },
   "production": {
-    "url": "postgres://gzfteaml:a7IsWGjq4I6UkDYH1jMsVv503pjSxkR2@elmer.db.elephantsql.com:5432/gzfteaml",
+    "use_env_variable": "postgres://gzfteaml:a7IsWGjq4I6UkDYH1jMsVv503pjSxkR2@elmer.db.elephantsql.com:5432/gzfteaml",
     "dialect": "postgres"
   }
 }
