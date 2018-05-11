@@ -51,11 +51,11 @@ export default class Middleware {
   }
 
 	static validateSignin(req, res, next){
-		const { username, password } = req.body;
+		const { email, password } = req.body;
 		const error = {};
 
-		if (!username || (username && validator.isEmpty(username.trim()))) {
-	    error.username = 'username is required';
+		if (!email || (email && validator.isEmpty(email.trim()))) {
+	    error.email = 'email is required';
 	  }
 
 	  if (!password || (password && validator.isEmpty(password.trim()))) {
@@ -73,14 +73,19 @@ export default class Middleware {
 	}
 
 	static validateSignup(req, res, next){
-		const { storeName, username, email, password, phone_no, address, img_path } = req.body;
+		const { name, username, email, password, role } = req.body;
 		const error = {};
 
 		if (!email || (email && !validator.isEmail(email))) {
 			error.email = 'email is required';
 		}
+		if (!isNaN(name)) {
+			error.name = 'name cannot be a number ';
+		}
 
-		if (!username || (username && validator.isEmpty(username.trim()))) {
+		if (!isNaN(username)) {
+			error.username = 'username cannot be a number ';
+		}else if (!username || (username && validator.isEmpty(username.trim()))) {
 	    error.username = 'username is required';
 	  }
 
@@ -217,5 +222,19 @@ export default class Middleware {
 	  });
 	}
 
+	static checkTime(req, res, next){
+		let date = new Date();
+		let hour = date.getHours();
+
+		const endtime = 16;
+
+		if (hour > endtime) {
+			return res.status(400).json({
+				status: 'error',
+				message: 'Sorry, We are closed for the day'
+			});
+		}
+		next();
+	}
 
 }

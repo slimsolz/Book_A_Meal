@@ -7,24 +7,33 @@ export default class MenuController {
 	static setMenu(req, res){
 		const { ids } = req.body;
 		const { userId } = req;
-		let availableMeals;
 
-		Meal.findAll({}).then((meals) => {
-			availableMeals = meals.filter((meal) =>{
-				ids.includes(meal.id);
+		Menu.create({
+			available: true
+		}).then(menu => {
+			menu.setMeals(ids);
+		}).then(() => {
+			res.status(201).json({
+				status: 'success',
+				message: 'Menu set for the day'
+			})
+		}).catch(err => {
+			res.status(500).json({
+				message: 'Something went wrong'
 			});
 		});
 	}
-	
-	
-	//GET Menu
-	/*static getMenu(req, res){		
-	}*/
 
-	
+	static getMenu(req, res){
+		Menu.findOne({
+			where : {available: true},
+			include: [Meal]
+		})
+		.then((menu) => {
+			res.status(200).json({
+				status: 'success',
+				menu
+			})
+		})
+	}
 }
-
-
-/*
-
-*/

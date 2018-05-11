@@ -26,7 +26,7 @@ export default class UserController {
       if (userExists) {
         return res.status(409).json({
           status: 'error',
-          message: 'Account exists for that email'
+          message: 'Account exists'
         });
       }
     });
@@ -41,9 +41,9 @@ export default class UserController {
     }).then((user) => {
       const token = jwt.sign({ id: user.id }, process.env.SECRET, { expiresIn: '24h' });
       return res.status(201).json({
-        token,
         status: 'success',
         message: 'User created and logged in',
+        token,
         user: {
           name: user.name,
           username: user.username,
@@ -75,9 +75,9 @@ export default class UserController {
 
         return res.set('Authorization', `Bearer ${token}`)
         .status(200).json({
-          token,
           status: 'success',
-          message: 'Logged in Successfully',
+          message: 'Logged in',
+          token,
           user: {
             id: user.id,
             email: user.email,

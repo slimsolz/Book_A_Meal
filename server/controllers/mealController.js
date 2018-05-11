@@ -23,22 +23,22 @@ export default class MealController{
 		}).then((meal) => {
 			res.status(201).json({
 				status: 'success',
-				message: 'Successfully added meal',
+				message: 'Successfully Added Meal',
 				meal
 			})
 		}).catch((err) => res.status(500).json({
 			status: 'error',
-			message: err.stack
+			message: 'Server Error'
 		}));
 	}
 
 	//Delete a meal
 	static deleteMeal(req, res){
-		Meal.destroy({where: { id: req.params.id}}).then((deleteStatus) => {
+		Meal.destroy({where: { id: req.params.id }}).then((deleteStatus) => {
 			if (!deleteStatus) {
-				return res.status(500).json({
+				return res.status(400).json({
 					status: 'error',
-					message: 'Unable to delete Meal'
+					message: 'Meal not found'
 				});
 			}
 			return res.status(200).json({

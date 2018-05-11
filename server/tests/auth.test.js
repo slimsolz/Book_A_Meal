@@ -82,7 +82,7 @@ describe('POST /signup', () => {
   });
 
   // POST Sign up- should return 400 if no password
-  it('should return 400 if no eamil', (done) => {
+  it('should return 400 if no password', (done) => {
     chai.request(app)
       .post('/api/v1/user/signup')
       .send({
@@ -97,6 +97,42 @@ describe('POST /signup', () => {
         done();
       });
   });
+
+   // POST Sign up- should return 400 if no role
+  it('should return 400 if no role', (done) => {
+    chai.request(app)
+      .post('/api/v1/user/signup')
+      .send({
+        name: 'Jay',
+				username: 'jay',
+				email: 'jay@gmail.com',
+				password: 'pass'
+      })
+      .end((err, res) => {
+        expect(res).to.have.status(400);
+        expect(res.body.status).to.equal('error');
+        done();
+      });
+  });
+
+  // POST Sign up- should return 409 if email exists already
+ /* it('should return 409 if no role', (done) => {
+    chai.request(app)
+      .post('/api/v1/user/signup')
+      .send({
+        name: 'Jay',
+				username: 'jay',
+				email: 'mikkyb@gmail.com',
+				password: 'pass',
+				role: 'user'
+      })
+      .end((err, res) => {
+        expect(res).to.have.status(409);
+        expect(res.body.status).to.equal('error');
+        done();
+      });
+  });*/
+
 });
 
 //  Post Log in - Should Login Successfully

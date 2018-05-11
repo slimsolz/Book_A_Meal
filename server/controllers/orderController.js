@@ -8,6 +8,12 @@ export default class OrderController{
 		const { quantity, total, deliveryAddress, status } = req.body;
 		const { userId } = req;
 		const mealId = 4;
+		let foodName;
+
+		Meal.findById(mealId)
+		.then((meal)=> {
+			foodName = meal.mealName;
+		});
 
 		Order.create({
 			quantity, total, deliveryAddress, status, userId, mealId
@@ -15,7 +21,13 @@ export default class OrderController{
 			res.status(201).json({
 				status: 'success',
 				message: 'Order placed Successfully',
-				order
+				order: {
+					meal: foodName,
+					order: order.quantity,
+					total: order.total,
+					deliveryAddress: order.deliveryAddress,
+					status: order.status
+				}
 			})
 		}).catch((err) => {
 			res.status(500).json({
@@ -30,7 +42,12 @@ export default class OrderController{
 		const { quantity, total, deliveryAddress, status } = req.body;
 		const { userId } = req;
 		const mealId = 4;
+		let foodName;
 
+		Meal.findById(mealId)
+		.then((meal)=> {
+			foodName = meal.mealName;
+		});
 
 		Order.findById(req.params.id)
 			.then((order) => {
@@ -59,9 +76,10 @@ export default class OrderController{
 							status: 'success',
 							message: 'Order updated Successfully',
 							updatedOrder: {
+								meal: foodName,
 								quantity: updatedOrder.quantity,
 								total: updatedOrder.total,
-								address: updatedOrder.deliveryAddress,
+								deliveryAddress: updatedOrder.deliveryAddress,
 								status: updatedOrder.status
 							}
 						});

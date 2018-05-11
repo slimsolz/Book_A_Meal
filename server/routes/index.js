@@ -4,7 +4,6 @@ import UserController from '../controllers/userController';
 import MealController from '../controllers/mealController';
 import MenuController from '../controllers/menuController';
 import OrderController from '../controllers/orderController';
-import DashboardController from '../controllers/dashboardController';
 
 
 const router = express.Router();
@@ -19,7 +18,7 @@ router.get('/', (req, res, next) => {
 
 //Users
 router.post('/user/signup', Middleware.validateSignup, UserController.signUp);
-router.post('/user/signin', UserController.signin);
+router.post('/user/signin', Middleware.validateSignin, UserController.signin);
  
 //Meals
 router.get('/meals',  Middleware.isLoggedIn, Middleware.checkRole, MealController.getMeals);
@@ -28,13 +27,14 @@ router.delete('/meals/:id', Middleware.isLoggedIn, Middleware.validParam, Middle
 router.put('/meals/:id', Middleware.isLoggedIn, Middleware.validParam, Middleware.checkRole, Middleware.validateUpdateMeal, MealController.updateMeal);
 
 //Menu
-/*router.post('/menu', MenuController.setMenu);
+router.post('/menu', MenuController.setMenu);
 router.get('/menu', MenuController.getMenu);
-*/
+
+
 /*order*/
-router.post('/orders', Middleware.isLoggedIn, Middleware.validateOrder, OrderController.placeOrder);
+router.post('/orders', Middleware.isLoggedIn, Middleware.checkTime, Middleware.validateOrder, OrderController.placeOrder);
 router.put('/orders/:id', Middleware.isLoggedIn, Middleware.validParam, Middleware.validateOrderUpdate, OrderController.modifyOrder);
-router.get('/orders', Middleware.isLoggedIn, OrderController.getAllOrders);
+router.get('/orders', Middleware.isLoggedIn, Middleware.checkRole, OrderController.getAllOrders);
 
 // 404
 router.get('*', (req, res) => {
@@ -43,5 +43,4 @@ router.get('*', (req, res) => {
     message: 'Not found'
   });
 });
-
 export default router;

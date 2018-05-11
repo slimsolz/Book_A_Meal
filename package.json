@@ -7,7 +7,7 @@
     "start": "babel-node server/app.js",
     "dev-start": "nodemon --exec babel-node server/app.js",
     "build": "babel server -d server/dist --ignore server/dist",
-    "test": "cross-env NODE_ENV=test SECRET=testsecret nyc --reporter=html --reporter=text mocha server/tests/auth.test.js --exit --compilers js:babel-core/register",
+    "test": "cross-env NODE_ENV=test SECRET=testsecret nyc --reporter=html --reporter=text mocha server/tests/ --exit --compilers js:babel-core/register",
     "test-watch": "nodemon --exec \"npm test\"",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "migrate": "sequelize db:migrate",
