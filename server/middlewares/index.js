@@ -1,15 +1,61 @@
 import validator from 'validator';
 import isEmpty from 'lodash.isempty';
+import jwt from 'jsonwebtoken';
+import isInt from 'validator/lib/isInt';
+import Model from '../models';
+
+const { User } = Model;
 
 
 export default class Middleware {
 
+	static isLoggedIn(req, res, next) {
+    const token = req.body.token || req.query.token || req.get('Authorization').slice(7);
+    jwt.verify(token, process.env.SECRET, (err, decoded) => {
+      if (err) {
+        return res.status(401).json({
+          status: 'error',
+          message: 'User not logged in'
+        });
+      }
+      req.userId = decoded.id;
+      return next();
+    });
+  }
+
+  static checkRole(req, res, next){
+  	const { userId } = req;
+
+  	User.findOne({ where: { id: userId, role: 'caterer' }})
+  	.then((user) => {
+  		if (!user) {
+  			return res.status(401).json({
+  				status: 'error',
+  				message: 'Do not have perission to perfom action'
+  			})
+  		}
+  		next();
+  	});
+  }
+
+  static validParam(req, res, next) {
+    const reqId = req.params.id;
+    const id = isInt(reqId);
+    if (!id) {
+      return res.status(400).json({
+        status: 'error',
+        message: 'Invalid parameter'
+      });
+    }
+    next();
+  }
+
 	static validateSignin(req, res, next){
-		const { username, password } = req.body;
+		const { email, password } = req.body;
 		const error = {};
 
-		if (!username || (username && validator.isEmpty(username.trim()))) {
-	    error.username = 'username is required';
+		if (!email || (email && validator.isEmpty(email.trim()))) {
+	    error.email = 'email is required';
 	  }
 
 	  if (!password || (password && validator.isEmpty(password.trim()))) {
@@ -27,14 +73,19 @@ export default class Middleware {
 	}
 
 	static validateSignup(req, res, next){
-		const { email, username, password } = req.body;
+		const { name, username, email, password, role } = req.body;
 		const error = {};
 
 		if (!email || (email && !validator.isEmail(email))) {
 			error.email = 'email is required';
 		}
+		if (!isNaN(name)) {
+			error.name = 'name cannot be a number ';
+		}
 
-		if (!username || (username && validator.isEmpty(username.trim()))) {
+		if (!isNaN(username)) {
+			error.username = 'username cannot be a number ';
+		}else if (!username || (username && validator.isEmpty(username.trim()))) {
 	    error.username = 'username is required';
 	  }
 
@@ -55,11 +106,10 @@ export default class Middleware {
 	static validateAddMeal(req, res, next){
 		const error = {};
 	  const {
-	    title, price, imageurl, available, catererId
-	  } = req.body;
+	    mealName, price, imgpath, available  } = req.body;
  
-	  if (!title || (title && validator.isEmpty(title.trim()))) {
-	    error.title = 'Meal name is required';
+	  if (!mealName || (mealName && validator.isEmpty(mealName.trim()))) {
+	    error.mealName = 'Meal name is required';
 	  }
 
 	  if (!price) {
@@ -70,16 +120,8 @@ export default class Middleware {
 	    error.price = 'Meal price must be numbers';
 	  }
 
-	  if (!imageurl || (imageurl && validator.isEmpty(imageurl.trim()))) {
-	    error.imageurl = 'Meal image url is required';
-	  }
-
-	  if (!catererId) {
-	    error.catererId = 'Caterer Id is required';
-	  }
-
-	  if (catererId && isNaN(catererId)) {
-	    error.catererId = 'catererId must be numbers';
+	  if (!imgpath || (imgpath && validator.isEmpty(imgpath.trim()))) {
+	    error.imgpath = 'Meal image url is required';
 	  }
 
 	  if (isEmpty(error)) {
@@ -96,11 +138,10 @@ export default class Middleware {
 		const error = {};
 
 		const id = parseInt(req.params.id, 10);
-		const catererId = parseInt(req.params.catererId, 10);		
-		const { title, price, imageurl } = req.body;
+		const { mealName, price, imgpath, available  } = req.body;
  
-	  if (!title || (title && validator.isEmpty(title.trim()))) {
-	    error.title = 'Meal name is required';
+	  if (!mealName || (mealName && validator.isEmpty(mealName.trim()))) {
+	    error.mealName = 'Meal name is required';
 	  }
 
 	  if (!price) {
@@ -111,8 +152,8 @@ export default class Middleware {
 	    error.price = 'Meal price must be numbers';
 	  }
 
-	  if (!imageurl || (imageurl && validator.isEmpty(imageurl.trim()))) {
-	    error.imageurl = 'Meal image url is required';
+	  if (!imgpath || (imgpath && validator.isEmpty(imgpath.trim()))) {
+	    error.imgpath = 'Meal image url is required';
 	  }
 
 		if (isEmpty(error)) {
@@ -126,12 +167,9 @@ export default class Middleware {
 	}
 
 	static validateOrder(req, res, next){
-		const { meal_title, quantity, delivery_address, customerId, catererId } = req.body;
+		const { quantity, total, deliveryAddress, status } = req.body;
 		const error = {};
 
-		if (!meal_title || (meal_title && validator.isEmpty(meal_title.trim()))) {
-	    error.meal_title = 'Meal name is required';
-	  }
 
 	  if (!quantity) {
 	    error.quantity = 'quantity is required';
@@ -141,26 +179,11 @@ export default class Middleware {
 	    error.quantity = 'quantity must be numbers';
 	  }
 
-	  if (!delivery_address || (delivery_address && validator.isEmpty(delivery_address.trim()))) {
-	    error.delivery_address = 'delivery_address is required';
+	  if (!deliveryAddress || (deliveryAddress && validator.isEmpty(deliveryAddress.trim()))) {
+	    error.deliveryAddress = 'deliveryAddress is required';
 	  }
 
-	  if (!customerId) {
-	    error.customerId = 'customer Id is required';
-	  }
-
-	  if (customerId && isNaN(customerId)) {
-	    error.customerId = 'customer Id must be numbers';
-	  }
-
-	  if (!catererId) {
-	    error.catererId = 'Caterer Id is required';
-	  }
-
-	  if (catererId && isNaN(catererId)) {
-	    error.catererId = 'caterer Id must be numbers';
-	  }
-
+	 
 		if (isEmpty(error)) {
 	    return next();
 	  }
@@ -172,12 +195,9 @@ export default class Middleware {
 	}
 
 	static validateOrderUpdate(req, res, next){
-		const { meal_title, quantity, delivery_address } = req.body;
+		const { quantity, total, deliveryAddress, status } = req.body;
 		const error = {};
 
-		if (!meal_title || (meal_title && validator.isEmpty(meal_title.trim()))) {
-	    error.meal_title = 'Meal name is required';
-	  }
 
 	  if (!quantity) {
 	    error.quantity = 'quantity is required';
@@ -187,9 +207,10 @@ export default class Middleware {
 	    error.quantity = 'quantity must be numbers';
 	  }
 
-	  if (!delivery_address || (delivery_address && validator.isEmpty(delivery_address.trim()))) {
-	    error.delivery_address = 'delivery_address is required';
+	  if (!deliveryAddress || (deliveryAddress && validator.isEmpty(deliveryAddress.trim()))) {
+	    error.deliveryAddress = 'deliveryAddress is required';
 	  }
+
 
 	  if (isEmpty(error)) {
 	    return next();
@@ -201,5 +222,19 @@ export default class Middleware {
 	  });
 	}
 
+	static checkTime(req, res, next){
+		let date = new Date();
+		let hour = date.getHours();
+
+		const endtime = 16;
+
+		if (hour > endtime) {
+			return res.status(400).json({
+				status: 'error',
+				message: 'Sorry, We are closed for the day'
+			});
+		}
+		next();
+	}
 
 }

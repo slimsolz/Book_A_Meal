@@ -14,10 +14,7 @@
     "dialect": "postgres"
   },
   "production": {
-    "username": "postgres",
-    "password": null,
-    "database": "bookameal_prod",
-    "host": "127.0.0.1",
+    "url": "postgres://gzfteaml:a7IsWGjq4I6UkDYH1jMsVv503pjSxkR2@elmer.db.elephantsql.com:5432/gzfteaml",
     "dialect": "postgres"
   }
 }

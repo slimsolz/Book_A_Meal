@@ -18,24 +18,6 @@ module.exports = {
       allowNull: false,
       type: Sequelize.DATE
     },
-    catererId: {
-      type: Sequelize.INTEGER,
-      onDelete: 'CASCADE',
-      allowNull: false,
-      references: {
-        model: 'Caterers',
-        key: 'id',
-      }
-    },
-    customerId: {
-      type: Sequelize.INTEGER,
-      onDelete: 'CASCADE',
-      allowNull: false,
-      references: {
-        model: 'Customers',
-        key: 'id',
-      }
-    },
   }),
 
   down: (queryInterface, Sequelize) => queryInterface.dropTable('Menus')

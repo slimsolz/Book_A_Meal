@@ -1,12 +1,12 @@
 module.exports = {
-  up: (queryInterface, Sequelize) => queryInterface.createTable('Caterers', {
+  up: (queryInterface, Sequelize) => queryInterface.createTable('Users', {
     id: {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
       type: Sequelize.INTEGER
     },
-    storeName: {
+    name: {
       type: Sequelize.STRING,
       allowNull: false
     },
@@ -23,15 +23,7 @@ module.exports = {
       type: Sequelize.STRING,
       allowNull: false
     },
-    phone_no: {
-      type: Sequelize.STRING,
-      allowNull: false
-    },
-    address: {
-      type: Sequelize.STRING,
-      allowNull: false
-    },
-    img_path: {
+    role: {
       type: Sequelize.STRING,
       allowNull: false
     },
@@ -45,5 +37,5 @@ module.exports = {
     }
   }),
 
-  down: (queryInterface, Sequelize) => queryInterface.dropTable('Caterers')
+  down: (queryInterface, Sequelize) => queryInterface.dropTable('Users')
 };

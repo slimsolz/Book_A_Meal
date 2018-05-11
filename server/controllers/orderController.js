@@ -1,83 +1,116 @@
-import db from '../models/dummy-db';
+import Model from '../models';
+
+const { Order, Meal } = Model;
 
 export default class OrderController{
 	//place Order
 	static placeOrder(req, res){
-		const { meal_title, quantity, delivery_address, customerId, catererId } = req.body;
+		const { quantity, total, deliveryAddress, status } = req.body;
+		const { userId } = req;
+		const mealId = 4;
+		let foodName;
 
-		const new_order = {
-			id: db.orders[db.orders.length - 1].id + 1,
-			meal_title,
-			quantity,
-			amount: (350 * quantity),
-			delivery_address,
-			time_placed: new Date(),
-			customerId,
-			catererId
-		};
-
-		//check if order has bin made already
-		db.orders.push(new_order);
-		return res.status(201).json({
-			status: 'success',
-			message: 'Order placed Successfully',
-			order: new_order
+		Meal.findById(mealId)
+		.then((meal)=> {
+			foodName = meal.mealName;
 		});
+
+		Order.create({
+			quantity, total, deliveryAddress, status, userId, mealId
+		}).then((order) => {
+			res.status(201).json({
+				status: 'success',
+				message: 'Order placed Successfully',
+				order: {
+					meal: foodName,
+					order: order.quantity,
+					total: order.total,
+					deliveryAddress: order.deliveryAddress,
+					status: order.status
+				}
+			})
+		}).catch((err) => {
+			res.status(500).json({
+				status: 'error',
+				message: 'Server error'
+			});
+		});		
 	}
 
 	//Modify order
 	static modifyOrder(req, res){
-		const orderId = parseInt(req.params.orderId, 10);
-		let orderFound;
-		let itemIndex;
+		const { quantity, total, deliveryAddress, status } = req.body;
+		const { userId } = req;
+		const mealId = 4;
+		let foodName;
 
-		//Find order in db
-		db.orders.map((order, index) =>{
-			if (order.id === orderId) {
-					orderFound = order;
-					itemIndex = index;
-			}
+		Meal.findById(mealId)
+		.then((meal)=> {
+			foodName = meal.mealName;
 		});
 
-		//if order not found
-		if (!orderFound) {
-			return res.status(400).json({
-				status: 'error',
-				message: 'order not found'
+		Order.findById(req.params.id)
+			.then((order) => {
+				if (!order) {
+					return res.status(404).json({
+						status: 'error',
+						message: 'Order not found'
+					});
+				}
+				if (order.status === 'Approved' || order.status === 'In Process' ) {
+					return res.status(404).json({
+						status: 'error',
+						message: 'Order cannot be modified'
+					});
+				}
+				order.update({
+					quantity: quantity || order.quantity,
+					total: total || order.total,
+					deliveryAddress: deliveryAddress || order.deliveryAddress,
+					status: status || order.status,
+					userId,
+					mealId
+				}).then((updatedOrder) => {
+					if (updatedOrder) {
+						return res.status(200).json({
+							status: 'success',
+							message: 'Order updated Successfully',
+							updatedOrder: {
+								meal: foodName,
+								quantity: updatedOrder.quantity,
+								total: updatedOrder.total,
+								deliveryAddress: updatedOrder.deliveryAddress,
+								status: updatedOrder.status
+							}
+						});
+					}
+				});
+			}).catch((err) => {
+				return res.status(500).json({
+					status: 'error',
+					message: 'Server Error'
+				});
 			});
-		}
-
-		const { meal_title, quantity, delivery_address } = req.body;
-
-		const modified_order = {
-			id: orderFound.id,
-			meal_title: meal_title ,
-			quantity: quantity ,
-			amount: (350 * quantity),
-			delivery_address: delivery_address,
-			time_placed: new Date(),
-			customerId: orderFound.customerId,
-			catererId: orderFound.catererId
-		};
-
-		db.meals.splice(itemIndex, 1, modified_order);
-		return res.status(201).json({
-			status: 'success',
-			message: 'Order Modified and Placed Successfully',
-			order: modified_order
-		});
 	}
 
 	//get all order
 	static getAllOrders(req, res){
-		const catererId = parseInt(req.params.catererId, 10);
-
-		let filteredOrders = db.orders.filter((order) => order.catererId === catererId);
-		return res.status(200).json({
-			status: 'success',
-			message: 'All Orders',
-			orders: filteredOrders
-		});
+		Order.findAll({}).then((orders) => {
+			if (orders.length === 0) {
+				return res.status(404).json({
+					status: 'error',
+					message: 'No order found'
+				});
+			}
+			return res.status(200).json({
+				status: 'success',
+				message: 'Orders Found',
+				orders
+			});
+		}).catch((err) => res.status(500).json({
+			status: 'error',
+			message: 'Server Error'
+		}));
 	}
 
 }

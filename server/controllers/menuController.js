@@ -1,42 +1,39 @@
-import db from '../models/dummy-db';
+import Model from '../models';
+
+const { Menu, Meal } = Model;
 
 export default class MenuController {
 	//POST Menu
 	static setMenu(req, res){
-		const catererId = parseInt(req.params.catererId, 10);
-		const { title } = req.body;
+		const { ids } = req.body;
+		const { userId } = req;
 
-		if (!title) {
-			return res.status(400).json({
-				status: 'error',
-				message: 'title is required'
+		Menu.create({
+			available: true
+		}).then(menu => {
+			menu.setMeals(ids);
+		}).then(() => {
+			res.status(201).json({
+				status: 'success',
+				message: 'Menu set for the day'
+			})
+		}).catch(err => {
+			res.status(500).json({
+				message: 'Something went wrong'
 			});
-		}
-
-		const menu = {
-			id: db.menu.length + 1,
-			catererId,
-			title			
-		}
-
-		//add to db menu
-		db.menu.push(menu);
-		return res.status(201).json({
-		 	status: 'success',
-		 	message: 'menu set successfully',
-		 	title: db.menu
-		 });
-	}
-	
-	
-	//GET Menu
-	static getMenu(req, res){		
-		return res.status(200).json({
-			status: 'success',
-			message: 'All Menus',
-			menu: db.menu
 		});
 	}
 
-	
+	static getMenu(req, res){
+		Menu.findOne({
+			where : {available: true},
+			include: [Meal]
+		})
+		.then((menu) => {
+			res.status(200).json({
+				status: 'success',
+				menu
+			})
+		})
+	}
 }
