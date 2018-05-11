@@ -1,12 +1,9 @@
 import express from 'express';
-import db from '../models/dummy-db';
 import Middleware from '../middlewares';
-import CatererController from '../controllers/catererController';
-import CustomerController from '../controllers/customerController';
+import UserController from '../controllers/userController';
 import MealController from '../controllers/mealController';
 import MenuController from '../controllers/menuController';
 import OrderController from '../controllers/orderController';
-import DashboardController from '../controllers/dashboardController'
 
 
 const router = express.Router();
@@ -18,33 +15,26 @@ router.get('/', (req, res, next) => {
   });
 });
 
-//Caterers
-router.post('/caterer/signup', Middleware.validateSignup, CatererController.signUp );
-router.post('/caterer/signin', Middleware.validateSignin, CatererController.signIn);
 
 //Users
-router.post('/customer/signup', Middleware.validateSignup, CustomerController.signUp);
-router.post('/customer/signin', Middleware.validateSignin, CustomerController.signIn);
-
+router.post('/user/signup', Middleware.validateSignup, UserController.signUp);
+router.post('/user/signin', Middleware.validateSignin, UserController.signin);
+ 
 //Meals
-router.get('/meals', MealController.getMeals);
-router.get('/meals/:catererId', MealController.getAllMeals);
-router.get('/meals/:catererId/:id', MealController.getMealById);
-router.post('/meals', Middleware.validateAddMeal, MealController.addMeal);
-router.delete('/meals/:catererId/:id', MealController.deleteMeal);
-router.put('/meals/:catererId/:id', Middleware.validateUpdateMeal, MealController.updateMeal);
+router.get('/meals',  Middleware.isLoggedIn, Middleware.checkRole, MealController.getMeals);
+router.post('/meals', Middleware.isLoggedIn, Middleware.checkRole, Middleware.validateAddMeal, MealController.addMeal);
+router.delete('/meals/:id', Middleware.isLoggedIn, Middleware.validParam, Middleware.checkRole, MealController.deleteMeal);
+router.put('/meals/:id', Middleware.isLoggedIn, Middleware.validParam, Middleware.checkRole, Middleware.validateUpdateMeal, MealController.updateMeal);
 
 //Menu
-router.post('/menu/:catererId', MenuController.setMenu);
+router.post('/menu', MenuController.setMenu);
 router.get('/menu', MenuController.getMenu);
 
-/*order*/
-router.post('/orders', Middleware.validateOrder, OrderController.placeOrder);
-router.put('/orders/:orderId', Middleware.validateOrderUpdate, OrderController.modifyOrder);
-router.get('/orders/:catererId', OrderController.getAllOrders);
 
-/*Summary*/
-router.get('/dashboard/:catererId', DashboardController.getSummary);
+/*order*/
+router.post('/orders', Middleware.isLoggedIn, Middleware.checkTime, Middleware.validateOrder, OrderController.placeOrder);
+router.put('/orders/:id', Middleware.isLoggedIn, Middleware.validParam, Middleware.validateOrderUpdate, OrderController.modifyOrder);
+router.get('/orders', Middleware.isLoggedIn, Middleware.checkRole, OrderController.getAllOrders);
 
 // 404
 router.get('*', (req, res) => {
@@ -53,5 +43,4 @@ router.get('*', (req, res) => {
     message: 'Not found'
   });
 });
-
 export default router;

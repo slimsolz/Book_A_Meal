@@ -20,18 +20,13 @@ module.exports = (sequelize, DataTypes) => {
 
   Order.associate = (models) => {
     // associations can be defined here
-    Order.belongsTo(models.Caterer, {
-      foreignKey: 'catererId',
+    Order.belongsTo(models.User, {
+      foreignKey: 'userId',
       onDelete: 'CASCADE'
     });
 
-    Order.belongsTo(models.Customer, {
-      foreignKey: 'customerId',
-      onDelete: 'CASCADE'
-    });
-
-    Order.hasMany(models.Meal, {
-      foreignKey: 'orderId',
+    Order.belongsTo(models.Meal, {
+      foreignKey: 'mealId',
       onDelete: 'CASCADE'
     });
   };
